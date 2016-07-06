@@ -1,4 +1,4 @@
-# SwaggerClient::Links
+# MetatronClient::Links
 
 ## Properties
 Name | Type | Description | Notes

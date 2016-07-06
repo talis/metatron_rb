@@ -1,4 +1,4 @@
-# SwaggerClient::ManifestationResultSet
+# MetatronClient::ManifestationResultSet
 
 ## Properties
 Name | Type | Description | Notes

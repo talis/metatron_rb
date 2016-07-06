@@ -1,4 +1,4 @@
-# SwaggerClient::OneToOneRelationship
+# MetatronClient::OneToOneRelationship
 
 ## Properties
 Name | Type | Description | Notes

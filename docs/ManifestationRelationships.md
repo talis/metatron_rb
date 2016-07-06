@@ -1,4 +1,4 @@
-# SwaggerClient::ManifestationRelationships
+# MetatronClient::ManifestationRelationships
 
 ## Properties
 Name | Type | Description | Notes

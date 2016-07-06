@@ -1,17 +1,17 @@
 # -*- encoding: utf-8 -*-
 $:.push File.expand_path("../lib", __FILE__)
-require "swagger_client/version"
+require "metatron_ruby_client/version"
 
 Gem::Specification.new do |s|
-  s.name        = "swagger_client"
-  s.version     = SwaggerClient::VERSION
+  s.name        = "metatron_ruby_client"
+  s.version     = MetatronClient::VERSION
   s.platform    = Gem::Platform::RUBY
-  s.authors     = [""]
-  s.email       = [""]
-  s.homepage    = ""
-  s.summary     = ""
-  s.description = ""
-  s.license     = ""
+  s.authors     = ["Ross Singer"]
+  s.email       = ["rxs@talis.com"]
+  s.homepage    = "https://github.com/talis/metatron_rb"
+  s.summary     = "A ruby API wrapper for Metatron"
+  s.description = "A client to utilise the bibliographic data and work set groupings in Metatron"
+  s.license     = "Copyright Talis Education Ltd"
 
 
   s.add_runtime_dependency 'typhoeus', '~> 0.2', '>= 0.2.1'

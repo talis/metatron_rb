@@ -1,4 +1,4 @@
-# SwaggerClient::DefaultApi
+# MetatronClient::DefaultApi
 
 All URIs are relative to *http://localhost:3000/2*
 
@@ -27,19 +27,19 @@ Add an asset to the relevant manifestation
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 manifestation_id = "manifestation_id_example" # String | 
 
-body = SwaggerClient::Asset.new # Asset | node
+body = MetatronClient::Asset.new # Asset | node
 
 
 begin
   result = api_instance.add_manifestation_asset(manifestation_idbody)
   p result
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->add_manifestation_asset: #{e}"
 end
 ```
@@ -74,9 +74,9 @@ Get local holdings for a given manifestation
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 manifestation_id = "manifestation_id_example" # String | 
 
@@ -87,7 +87,7 @@ begin
   #Get local holdings for a given manifestation
   result = api_instance.get_holdings(manifestation_idtenant_code)
   p result
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->get_holdings: #{e}"
 end
 ```
@@ -122,9 +122,9 @@ Get a specific Manifestation from the dataset
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 manifestation_id = "manifestation_id_example" # String | 
 
@@ -132,7 +132,7 @@ manifestation_id = "manifestation_id_example" # String |
 begin
   #Get a specific Manifestation from the dataset
   api_instance.get_manifestation(manifestation_id)
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->get_manifestation: #{e}"
 end
 ```
@@ -166,9 +166,9 @@ Get a set of Assets that are associated with a specific Manifestation
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 manifestation_id = "manifestation_id_example" # String | 
 
@@ -177,7 +177,7 @@ begin
   #Get a set of Assets that are associated with a specific Manifestation
   result = api_instance.get_manifestation_assets(manifestation_id)
   p result
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->get_manifestation_assets: #{e}"
 end
 ```
@@ -211,9 +211,9 @@ Get a set of Works relating to a given Manifestation. Usually there will be one 
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 manifestation_id = "manifestation_id_example" # String | 
 
@@ -221,7 +221,7 @@ manifestation_id = "manifestation_id_example" # String |
 begin
   #Get a set of Works relating to a given Manifestation. Usually there will be one current work, but due to previous titles there might be more than one Work.
   api_instance.get_manifestation_works(manifestation_id)
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->get_manifestation_works: #{e}"
 end
 ```
@@ -255,9 +255,9 @@ Get a set of Works that are similar to a specific Work
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 work_id = "work_id_example" # String | 
 
@@ -266,7 +266,7 @@ begin
   #Get a set of Works that are similar to a specific Work
   result = api_instance.get_work(work_id)
   p result
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->get_work: #{e}"
 end
 ```
@@ -300,9 +300,9 @@ Get a set of Assets that are associated with a specific Work
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 work_id = "work_id_example" # String | 
 
@@ -311,7 +311,7 @@ begin
   #Get a set of Assets that are associated with a specific Work
   result = api_instance.get_work_assets(work_id)
   p result
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->get_work_assets: #{e}"
 end
 ```
@@ -345,9 +345,9 @@ Get a set of Manifestations that encompass a specific Work
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 work_id = "work_id_example" # String | 
 
@@ -355,7 +355,7 @@ work_id = "work_id_example" # String |
 begin
   #Get a set of Manifestations that encompass a specific Work
   api_instance.get_work_manifestations(work_id)
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->get_work_manifestations: #{e}"
 end
 ```
@@ -391,9 +391,9 @@ Get the manifestation set best matching the given bibliographic data
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 opts = { 
   isbn: "isbn_example", # String | The isbn
@@ -403,7 +403,7 @@ opts = {
 begin
   result = api_instance.manifestation(opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->manifestation: #{e}"
 end
 ```
@@ -440,9 +440,9 @@ Remove an asset
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 asset_id = "asset_id_example" # String | 
 
@@ -451,7 +451,7 @@ asset_type = "asset_type_example" # String |
 
 begin
   api_instance.remove_asset(asset_id, asset_type)
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->remove_asset: #{e}"
 end
 ```
@@ -486,9 +486,9 @@ Get the work best matching the given bibliographic data
 ### Example
 ```ruby
 # load the gem
-require 'swagger_client'
+require 'metatron_ruby_client'
 
-api_instance = SwaggerClient::DefaultApi.new
+api_instance = MetatronClient::DefaultApi.new
 
 q = "q_example" # String | Search works for the supplied term
 
@@ -504,7 +504,7 @@ begin
   #Get the work best matching the given bibliographic data
   result = api_instance.work(q, limit, offset, opts)
   p result
-rescue SwaggerClient::ApiError => e
+rescue MetatronClient::ApiError => e
   puts "Exception when calling DefaultApi->work: #{e}"
 end
 ```

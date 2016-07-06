@@ -1,4 +1,4 @@
-# SwaggerClient::Error
+# MetatronClient::Error
 
 ## Properties
 Name | Type | Description | Notes

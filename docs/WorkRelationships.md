@@ -1,4 +1,4 @@
-# SwaggerClient::WorkRelationships
+# MetatronClient::WorkRelationships
 
 ## Properties
 Name | Type | Description | Notes

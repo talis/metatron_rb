@@ -1,4 +1,4 @@
-# SwaggerClient::AssetResultSet
+# MetatronClient::AssetResultSet
 
 ## Properties
 Name | Type | Description | Notes

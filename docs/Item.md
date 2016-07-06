@@ -1,4 +1,4 @@
-# SwaggerClient::Item
+# MetatronClient::Item
 
 ## Properties
 Name | Type | Description | Notes

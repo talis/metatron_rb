@@ -1,4 +1,4 @@
-# SwaggerClient::WorkResultSet
+# MetatronClient::WorkResultSet
 
 ## Properties
 Name | Type | Description | Notes
