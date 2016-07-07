@@ -28,6 +28,11 @@ Add an asset to the relevant manifestation
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -57,7 +62,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -75,6 +80,11 @@ Get local holdings for a given manifestation
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -105,7 +115,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -123,6 +133,11 @@ Get a specific Manifestation from the dataset
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -149,7 +164,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -167,6 +182,11 @@ Get a set of Assets that are associated with a specific Manifestation
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -194,7 +214,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -212,6 +232,11 @@ Get a set of Works relating to a given Manifestation. Usually there will be one 
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -238,7 +263,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -256,6 +281,11 @@ Get a set of Works that are similar to a specific Work
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -283,7 +313,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -301,6 +331,11 @@ Get a set of Assets that are associated with a specific Work
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -328,7 +363,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -346,6 +381,11 @@ Get a set of Manifestations that encompass a specific Work
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -372,7 +412,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -392,6 +432,11 @@ Get the manifestation set best matching the given bibliographic data
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -421,7 +466,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -441,6 +486,11 @@ Remove an asset
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -469,7 +519,7 @@ nil (empty response body)
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 
@@ -487,6 +537,11 @@ Get the work best matching the given bibliographic data
 ```ruby
 # load the gem
 require 'metatron_ruby_client'
+# setup authorization 
+MetatronClient.configure do |config|
+  # Configure OAuth2 access token for authorization: oauth2
+  config.access_token = 'YOUR ACCESS TOKEN'
+end
 
 api_instance = MetatronClient::DefaultApi.new
 
@@ -524,7 +579,7 @@ Name | Type | Description  | Notes
 
 ### Authorization
 
-No authorization required
+[oauth2](../README.md#oauth2)
 
 ### HTTP reuqest headers
 

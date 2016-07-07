@@ -157,6 +157,13 @@ module MetatronClient
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
+        'oauth2' =>
+          {
+            type: 'oauth2',
+            in: 'header',
+            key: 'Authorization',
+            value: "Bearer #{access_token}"
+          },
       }
     end
   end
