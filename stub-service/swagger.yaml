@@ -1,0 +1,1129 @@
+---
+swagger: "2.0"
+info:
+  description: "A primitive modelling bibliographic metadata"
+  version: "2.0.0"
+  title: "Metatron Server"
+host: "localhost:3000"
+basePath: "/2"
+schemes:
+- "http"
+consumes:
+- "application/json"
+produces:
+- "application/vnd.api+json"
+paths:
+  /assets/{assetType}/{assetId}:
+    delete:
+      description: "Remove an asset"
+      operationId: "removeAsset"
+      parameters:
+      - name: "assetId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "assetType"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Successful response"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:write"
+      x-swagger-router-controller: "Assets"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##DeleteAsset##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          .*"status"\:400.*:
+            statusCode: "400"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:401.*:
+            statusCode: "401"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:403.*:
+            statusCode: "403"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:404.*:
+            statusCode: "404"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:500.*:
+            statusCode: "500"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          default:
+            statusCode: "200"
+  /manifestations:
+    get:
+      description: "Get the manifestation set best matching the given bibliographic\
+        \ data"
+      operationId: "manifestation"
+      parameters:
+      - name: "isbn"
+        in: "query"
+        description: "The isbn"
+        required: false
+        type: "string"
+      - name: "work_id"
+        in: "query"
+        description: "The ID of a work"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ManifestationResultSet"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Resolver"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##GetManifestations##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          .*"status"\:400.*:
+            statusCode: "400"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:401.*:
+            statusCode: "401"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:403.*:
+            statusCode: "403"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:404.*:
+            statusCode: "404"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:500.*:
+            statusCode: "500"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          default:
+            statusCode: "200"
+  /manifestations/{manifestationId}:
+    get:
+      summary: "Get a specific Manifestation from the dataset"
+      operationId: "getManifestation"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Manifestations"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##TODO##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          default:
+            statusCode: "501"
+  /manifestations/{manifestationId}/assets:
+    get:
+      summary: "Get a set of Assets that are associated with a specific Manifestation"
+      operationId: "getManifestationAssets"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AssetResultSet"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Assets"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##GetAssets##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          .*"status"\:400.*:
+            statusCode: "400"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:401.*:
+            statusCode: "401"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:403.*:
+            statusCode: "403"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:404.*:
+            statusCode: "404"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:500.*:
+            statusCode: "500"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          default:
+            statusCode: "200"
+    post:
+      description: "Add an asset to the relevant manifestation"
+      operationId: "addManifestationAsset"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "body"
+        description: "node"
+        required: true
+        schema:
+          $ref: "#/definitions/Asset"
+      responses:
+        200:
+          description: "Successful response"
+          schema:
+            $ref: "#/definitions/Asset"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:write"
+      x-swagger-router-controller: "Assets"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##PostAsset##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          .*"status"\:400.*:
+            statusCode: "400"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:401.*:
+            statusCode: "401"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:403.*:
+            statusCode: "403"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:404.*:
+            statusCode: "404"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:500.*:
+            statusCode: "500"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          default:
+            statusCode: "200"
+  /manifestations/{manifestationId}/items/{tenantCode}:
+    get:
+      summary: "Get local holdings for a given manifestation"
+      operationId: "getHoldings"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "tenantCode"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/ItemResultSet"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Items"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##TODO##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          default:
+            statusCode: "501"
+  /manifestations/{manifestationId}/works:
+    get:
+      summary: "Get a set of Works relating to a given Manifestation. Usually there\
+        \ will be one current work, but due to previous titles there might be more\
+        \ than one Work."
+      operationId: "getManifestationWorks"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Manifestations"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##TODO##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          default:
+            statusCode: "501"
+  /works:
+    get:
+      summary: "Get the work best matching the given bibliographic data"
+      operationId: "work"
+      parameters:
+      - name: "q"
+        in: "query"
+        description: "Search works for the supplied term"
+        required: true
+        type: "string"
+      - name: "limit"
+        in: "query"
+        description: "Limit the results to n results"
+        required: true
+        type: "string"
+      - name: "offset"
+        in: "query"
+        description: "Offset the results to position n"
+        required: true
+        type: "string"
+      - name: "include"
+        in: "query"
+        description: "Define which relationships to include, comma separated"
+        required: false
+        type: "array"
+        items:
+          type: "string"
+          enum:
+          - "manifestations"
+          - "manifestations.assets"
+        collectionFormat: "csv"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/WorkResultSet"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Resolver"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##GetWorks##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          .*"status"\:400.*:
+            statusCode: "400"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:404.*:
+            statusCode: "404"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:500.*:
+            statusCode: "500"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          default:
+            statusCode: "200"
+  /works/{workId}/assets:
+    get:
+      summary: "Get a set of Assets that are associated with a specific Work"
+      operationId: "getWorkAssets"
+      parameters:
+      - name: "workId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/AssetResultSet"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Assets"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##GetAssets##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          .*"status"\:400.*:
+            statusCode: "400"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:401.*:
+            statusCode: "401"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:403.*:
+            statusCode: "403"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:404.*:
+            statusCode: "404"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          .*"status"\:500.*:
+            statusCode: "500"
+            responseTemplates:
+              application/json: "#set($inputRoot = $input.path('$.errorMessage'))\
+                \ \n$inputRoot"
+          default:
+            statusCode: "200"
+  /works/{workId}/manifestations:
+    get:
+      summary: "Get a set of Manifestations that encompass a specific Work"
+      operationId: "getWorkManifestations"
+      parameters:
+      - name: "workId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Works"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##TODO##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          default:
+            statusCode: "501"
+  /works/{workId}/similar:
+    get:
+      summary: "Get a set of Works that are similar to a specific Work"
+      operationId: "getWork"
+      parameters:
+      - name: "workId"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "Success"
+          schema:
+            $ref: "#/definitions/WorkResultSet"
+        400:
+          description: "Bad Request"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "Unauthorized"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "Forbidden"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "Not Found"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "Internal Server Error"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - oauth2:
+        - "su"
+        - "metatron:read"
+      x-swagger-router-controller: "Works"
+      x-amazon-apigateway-auth:
+        type: "none"
+      x-amazon-apigateway-integration:
+        type: "AWS"
+        uri: "arn:aws:apigateway:eu-west-1:lambda:path/2015-03-31/functions/##TODO##/invocations"
+        credentials: "##APIGatewayLambda##"
+        httpMethod: "POST"
+        requestTemplates:
+          application/json: "{ \"body\" : $input.json('$'), \"path\": \"$context.resourcePath\"\
+            , \"headers\": { #foreach($header in $input.params().header.keySet())\
+            \ \"$header\": \"$util.escapeJavaScript($input.params().header.get($header))\"\
+            \ #if($foreach.hasNext),#end\n#end }, \"method\": \"$context.httpMethod\"\
+            , \"params\": { #foreach($param in $input.params().path.keySet()) \"$param\"\
+            : \"$util.escapeJavaScript($input.params().path.get($param))\" #if($foreach.hasNext),#end\n\
+            #end }, \"query\": { #foreach($queryParam in $input.params().querystring.keySet())\
+            \ \"$queryParam\": \"$util.escapeJavaScript($input.params().querystring.get($queryParam))\"\
+            \ #if($foreach.hasNext),#end\n#end } }"
+        responses:
+          default:
+            statusCode: "501"
+securityDefinitions:
+  oauth2:
+    type: "oauth2"
+    tokenUrl: "https://users.talis.com/oauth/tokens"
+    flow: "application"
+    scopes:
+      su: "Talis super user"
+      metatron:read: "Read only access"
+      metatron:write: "Write only access"
+definitions:
+  Errors:
+    type: "object"
+    properties:
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/Error"
+  Error:
+    type: "object"
+    required:
+    - "status"
+    - "title"
+    properties:
+      status:
+        type: "number"
+      title:
+        type: "string"
+      detail:
+        type: "string"
+  Links:
+    type: "object"
+    required:
+    - "self"
+    properties:
+      self:
+        type: "string"
+      next:
+        type: "string"
+      previous:
+        type: "string"
+  Work:
+    type: "object"
+    required:
+    - "attributes"
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "works"
+      attributes:
+        $ref: "#/definitions/WorkAttributes"
+      relationships:
+        $ref: "#/definitions/WorkRelationships"
+  WorkAttributes:
+    type: "object"
+    required:
+    - "title"
+    properties:
+      title:
+        type: "string"
+  WorkRelationships:
+    type: "object"
+    properties:
+      manifestations:
+        $ref: "#/definitions/OneToManyRelationship"
+  Manifestation:
+    type: "object"
+    required:
+    - "attributes"
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "manifestations"
+      attributes:
+        $ref: "#/definitions/ManifestationAttributes"
+      relationships:
+        $ref: "#/definitions/ManifestationRelationships"
+  ManifestationAttributes:
+    type: "object"
+    properties:
+      format:
+        type: "string"
+      identifiers:
+        type: "object"
+        properties: {}
+      place_of_publication:
+        type: "string"
+      publishing_status:
+        type: "string"
+  ManifestationRelationships:
+    type: "object"
+    properties:
+      contributors:
+        $ref: "#/definitions/OneToManyRelationship"
+      assets:
+        $ref: "#/definitions/OneToManyRelationship"
+      work:
+        $ref: "#/definitions/OneToOneRelationship"
+  Item:
+    type: "object"
+    required:
+    - "id"
+    properties:
+      id:
+        type: "string"
+  AssetAttributes:
+    type: "object"
+    required:
+    - "asset_type"
+    properties:
+      asset_type:
+        type: "string"
+    additionalProperties:
+      type: "string"
+  Asset:
+    type: "object"
+    required:
+    - "attributes"
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "assets"
+      attributes:
+        $ref: "#/definitions/AssetAttributes"
+  Meta:
+    type: "object"
+    properties:
+      offset:
+        type: "number"
+        description: "start index of this set"
+      limit:
+        type: "number"
+        description: "max limit of records in this set"
+      count:
+        type: "number"
+        description: "total count of all matches"
+  ManifestationResultSet:
+    type: "object"
+    required:
+    - "data"
+    - "links"
+    - "meta"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/Meta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/Manifestation"
+  WorkResultSet:
+    type: "object"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/Meta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/Work"
+      included:
+        type: "array"
+        items:
+          $ref: "#/definitions/Resource"
+  ItemResultSet:
+    type: "object"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/Meta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/Item"
+  AssetResultSet:
+    type: "object"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/Meta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/Asset"
+  OneToManyRelationship:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      meta:
+        $ref: "#/definitions/Meta"
+      links:
+        $ref: "#/definitions/Links"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/Resource"
+  OneToOneRelationship:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      meta:
+        $ref: "#/definitions/Meta"
+      links:
+        $ref: "#/definitions/Links"
+      data:
+        $ref: "#/definitions/Resource"
+  Resource:
+    type: "object"
+    required:
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "agents"
+        - "assets"
+        - "works"
+        - "manifestations"
+      attributes:
+        type: "object"
+        properties: {}
+parameters:
+  include:
+    name: "include"
+    in: "query"
+    description: "Define which relationships to include, comma separated"
+    required: false
+    type: "array"
+    items:
+      type: "string"
+      enum:
+      - "manifestations"
+      - "manifestations.assets"
+    collectionFormat: "csv"
+  workId:
+    name: "workId"
+    in: "path"
+    required: true
+    type: "string"
+  manifestationId:
+    name: "manifestationId"
+    in: "path"
+    required: true
+    type: "string"
+  assetId:
+    name: "assetId"
+    in: "path"
+    required: true
+    type: "string"
+  assetType:
+    name: "assetType"
+    in: "path"
+    required: true
+    type: "string"
+  tenantCode:
+    name: "tenantCode"
+    in: "path"
+    required: true
+    type: "string"
+  assetBody:
+    in: "body"
+    name: "body"
+    description: "node"
+    required: true
+    schema:
+      $ref: "#/definitions/Asset"

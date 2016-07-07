@@ -1,0 +1,18 @@
+meta:
+  count: 2
+  total: 2
+  offset: 0
+  limit: 10
+data:
+  -
+    id: "anatomy_of_a_frog/authora"
+    type: "works"
+    attributes:
+      title: "Anatomy of a Frog"
+      authors: "Anne Author"
+  -
+    id: "froggy_went_a_courtin/bloggsj"
+    type: "works"
+    attributes:
+      title: "Froggy Went A Courtin'"
+      authors: "Joe Bloggs"

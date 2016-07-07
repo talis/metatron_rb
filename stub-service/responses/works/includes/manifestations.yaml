@@ -1,0 +1,82 @@
+relationships:
+  -
+    id: anatomy_of_a_frog/authora
+    type: works
+    relationship: manifestations
+    relationships:
+      -
+        id: abc:0001
+        type: manifestations
+      -
+        id: abc:0002
+        type: manifestations
+  -
+    id: froggy_went_a_courtin/bloggsj
+    type: works
+    relationship: manifestations
+    relationships:
+      -
+        id: abc:0003
+        type: manifestations
+resources:
+  -
+    id: "abc:0001"
+    type: "manifestations"
+    attributes:
+      identifiers:
+        isbn:
+          - "9780123456789"
+      place_of_publication: "Birmingham"
+      publishing_status: "00"
+      publisher:
+        imprint: "Talis Educational Press"
+        name: "Talis Information Limited"
+      country: xku
+      dates:
+        published: "1998"
+      title: Anatomy of a Frog
+    relationships:
+      works:
+        id: anatomy_of_a_frog/authora
+        type: works
+  -
+    id: "abc:0002"
+    type: "manifestations"
+    attributes:
+      identifiers:
+        isbn:
+          - "978012345678X"
+      place_of_publication: "Birmingham"
+      publishing_status: "00"
+      publisher:
+        imprint: "Talis Educational Press"
+        name: "Talis Information Limited"
+      country: xku
+      dates:
+        published: "2005"
+      title: Anatomy of a Frog
+      edition_statment: 2nd edition
+    relationships:
+      works:
+        id: anatomy_of_a_frog/authora
+        type: works
+  -
+    id: "abc:0003"
+    type: "manifestations"
+    attributes:
+      identifiers:
+        isbn:
+          - "9789876543210"
+      place_of_publication: "Tennessee"
+      publishing_status: "00"
+      publisher:
+        imprint: "Song books"
+        name: "Song books"
+      country: xxu
+      dates:
+        published: "1988"
+      title: Froggy Went a Courtin'
+    relationships:
+      works:
+        id: froggy_went_a_courtin/bloggsj
+        type: works
