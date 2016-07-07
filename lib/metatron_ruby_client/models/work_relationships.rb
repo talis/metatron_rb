@@ -28,7 +28,7 @@ module MetatronClient
     # Attribute type mapping.
     def self.swagger_types
       {
-        :'manifestations' => :'Array<OneToManyRelationship>'
+        :'manifestations' => :'OneToManyRelationship'
         
       }
     end
@@ -41,9 +41,7 @@ module MetatronClient
 
       
       if attributes[:'manifestations']
-        if (value = attributes[:'manifestations']).is_a?(Array)
-          self.manifestations = value
-        end
+        self.manifestations = attributes[:'manifestations']
       end
       
     end
