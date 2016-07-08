@@ -5,23 +5,30 @@ class ResultSet < Hash
 
   def include(filename)
     include = YAML.load_file filename
+    if include['include']
+     include "#{Dir.pwd}/responses/#{include['include']}.yaml"
+    end
     if include['resources']
-      self['included']= []
+      self['included'] ||= []
       include['resources'].each do |resource|
         self['included'] << resource
       end
     end
-    puts self['meta'].inspect
+
     if include['relationships']
       include['relationships'].each do |rel|
-        self['data'].each do |resource|
-          if resource['id'] == rel['id'] && resource['type'] == rel['type']
-            resource['relationships'] ||= {}
-            resource['relationships'][rel['relationship']] ||= []
-            rel['relationships'].each do |r|
-              resource['relationships'][rel['relationship']] << r
-            end
-          end
+        %w(data included).each {|key| hydrate_relationships key, rel }
+      end
+    end
+  end
+
+  def hydrate_relationships(key, rel)
+    self[key].each do |resource|
+      if resource['id'] == rel['id'] && resource['type'] == rel['type']
+        resource['relationships'] ||= {}
+        resource['relationships'][rel['relationship']] ||= []
+        rel['relationships'].each do |r|
+          resource['relationships'][rel['relationship']] << r
         end
       end
     end

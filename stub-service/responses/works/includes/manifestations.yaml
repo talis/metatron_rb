@@ -37,8 +37,10 @@ resources:
       title: Anatomy of a Frog
     relationships:
       works:
-        id: anatomy_of_a_frog/authora
-        type: works
+        data:
+          -
+            id: anatomy_of_a_frog/authora
+            type: works
   -
     id: "abc:0002"
     type: "manifestations"
@@ -58,8 +60,10 @@ resources:
       edition_statment: 2nd edition
     relationships:
       works:
-        id: anatomy_of_a_frog/authora
-        type: works
+        data:
+          -
+            id: anatomy_of_a_frog/authora
+            type: works
   -
     id: "abc:0003"
     type: "manifestations"
@@ -78,5 +82,7 @@ resources:
       title: Froggy Went a Courtin'
     relationships:
       works:
-        id: froggy_went_a_courtin/bloggsj
-        type: works
+        data:
+          -
+            id: froggy_went_a_courtin/bloggsj
+            type: works
