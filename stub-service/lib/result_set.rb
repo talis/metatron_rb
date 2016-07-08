@@ -26,9 +26,9 @@ class ResultSet < Hash
     self[key].each do |resource|
       if resource['id'] == rel['id'] && resource['type'] == rel['type']
         resource['relationships'] ||= {}
-        resource['relationships'][rel['relationship']] ||= []
+        resource['relationships'][rel['relationship']] ||= { 'data' => [] }
         rel['relationships'].each do |r|
-          resource['relationships'][rel['relationship']] << r
+          resource['relationships'][rel['relationship']]['data'] << r
         end
       end
     end
