@@ -3,8 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**type** | **String** |  | 
-**attributes** | [**AssetAttributes**](AssetAttributes.md) |  | 
+**meta** | [**AssetMeta**](AssetMeta.md) |  | [optional] 
+**data** | [**AssetData**](AssetData.md) |  | 
 
 

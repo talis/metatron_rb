@@ -3,6 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
+**links** | [**Links**](Links.md) |  | [optional] 
+**data** | [**ItemData**](ItemData.md) |  | 
 
 

@@ -27,7 +27,7 @@ module MetatronClient
     # @param [Hash] opts the optional parameters
     # @return [Asset]
     def add_manifestation_asset(manifestation_id, body, opts = {})
-      data, status_code, headers = add_manifestation_asset_with_http_info(manifestation_id, body, opts)
+      data, _status_code, _headers = add_manifestation_asset_with_http_info(manifestation_id, body, opts)
       return data
     end
 
@@ -39,14 +39,24 @@ module MetatronClient
     # @return [Array<(Asset, Fixnum, Hash)>] Asset data, response status code and response headers
     def add_manifestation_asset_with_http_info(manifestation_id, body, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#add_manifestation_asset ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.add_manifestation_asset ..."
       end
       
+      
       # verify the required parameter 'manifestation_id' is set
-      fail "Missing the required parameter 'manifestation_id' when calling add_manifestation_asset" if manifestation_id.nil?
+      fail ArgumentError, "Missing the required parameter 'manifestation_id' when calling DefaultApi.add_manifestation_asset" if manifestation_id.nil?
+      
+      
+      
+      
+      
       
       # verify the required parameter 'body' is set
-      fail "Missing the required parameter 'body' when calling add_manifestation_asset" if body.nil?
+      fail ArgumentError, "Missing the required parameter 'body' when calling DefaultApi.add_manifestation_asset" if body.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/manifestations/{manifestationId}/assets".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
@@ -58,12 +68,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -92,7 +102,7 @@ module MetatronClient
     # @param [Hash] opts the optional parameters
     # @return [ItemResultSet]
     def get_holdings(manifestation_id, tenant_code, opts = {})
-      data, status_code, headers = get_holdings_with_http_info(manifestation_id, tenant_code, opts)
+      data, _status_code, _headers = get_holdings_with_http_info(manifestation_id, tenant_code, opts)
       return data
     end
 
@@ -104,14 +114,24 @@ module MetatronClient
     # @return [Array<(ItemResultSet, Fixnum, Hash)>] ItemResultSet data, response status code and response headers
     def get_holdings_with_http_info(manifestation_id, tenant_code, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#get_holdings ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.get_holdings ..."
       end
       
+      
       # verify the required parameter 'manifestation_id' is set
-      fail "Missing the required parameter 'manifestation_id' when calling get_holdings" if manifestation_id.nil?
+      fail ArgumentError, "Missing the required parameter 'manifestation_id' when calling DefaultApi.get_holdings" if manifestation_id.nil?
+      
+      
+      
+      
+      
       
       # verify the required parameter 'tenant_code' is set
-      fail "Missing the required parameter 'tenant_code' when calling get_holdings" if tenant_code.nil?
+      fail ArgumentError, "Missing the required parameter 'tenant_code' when calling DefaultApi.get_holdings" if tenant_code.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/manifestations/{manifestationId}/items/{tenantCode}".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s).sub('{' + 'tenantCode' + '}', tenant_code.to_s)
@@ -123,12 +143,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -167,11 +187,16 @@ module MetatronClient
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def get_manifestation_with_http_info(manifestation_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#get_manifestation ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.get_manifestation ..."
       end
       
+      
       # verify the required parameter 'manifestation_id' is set
-      fail "Missing the required parameter 'manifestation_id' when calling get_manifestation" if manifestation_id.nil?
+      fail ArgumentError, "Missing the required parameter 'manifestation_id' when calling DefaultApi.get_manifestation" if manifestation_id.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/manifestations/{manifestationId}".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
@@ -183,12 +208,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -215,7 +240,7 @@ module MetatronClient
     # @param [Hash] opts the optional parameters
     # @return [AssetResultSet]
     def get_manifestation_assets(manifestation_id, opts = {})
-      data, status_code, headers = get_manifestation_assets_with_http_info(manifestation_id, opts)
+      data, _status_code, _headers = get_manifestation_assets_with_http_info(manifestation_id, opts)
       return data
     end
 
@@ -226,11 +251,16 @@ module MetatronClient
     # @return [Array<(AssetResultSet, Fixnum, Hash)>] AssetResultSet data, response status code and response headers
     def get_manifestation_assets_with_http_info(manifestation_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#get_manifestation_assets ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.get_manifestation_assets ..."
       end
       
+      
       # verify the required parameter 'manifestation_id' is set
-      fail "Missing the required parameter 'manifestation_id' when calling get_manifestation_assets" if manifestation_id.nil?
+      fail ArgumentError, "Missing the required parameter 'manifestation_id' when calling DefaultApi.get_manifestation_assets" if manifestation_id.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/manifestations/{manifestationId}/assets".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
@@ -242,12 +272,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -286,11 +316,16 @@ module MetatronClient
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def get_manifestation_works_with_http_info(manifestation_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#get_manifestation_works ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.get_manifestation_works ..."
       end
       
+      
       # verify the required parameter 'manifestation_id' is set
-      fail "Missing the required parameter 'manifestation_id' when calling get_manifestation_works" if manifestation_id.nil?
+      fail ArgumentError, "Missing the required parameter 'manifestation_id' when calling DefaultApi.get_manifestation_works" if manifestation_id.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/manifestations/{manifestationId}/works".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
@@ -302,12 +337,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -334,7 +369,7 @@ module MetatronClient
     # @param [Hash] opts the optional parameters
     # @return [WorkResultSet]
     def get_work(work_id, opts = {})
-      data, status_code, headers = get_work_with_http_info(work_id, opts)
+      data, _status_code, _headers = get_work_with_http_info(work_id, opts)
       return data
     end
 
@@ -345,11 +380,16 @@ module MetatronClient
     # @return [Array<(WorkResultSet, Fixnum, Hash)>] WorkResultSet data, response status code and response headers
     def get_work_with_http_info(work_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#get_work ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.get_work ..."
       end
       
+      
       # verify the required parameter 'work_id' is set
-      fail "Missing the required parameter 'work_id' when calling get_work" if work_id.nil?
+      fail ArgumentError, "Missing the required parameter 'work_id' when calling DefaultApi.get_work" if work_id.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/works/{workId}/similar".sub('{format}','json').sub('{' + 'workId' + '}', work_id.to_s)
@@ -361,12 +401,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -394,7 +434,7 @@ module MetatronClient
     # @param [Hash] opts the optional parameters
     # @return [AssetResultSet]
     def get_work_assets(work_id, opts = {})
-      data, status_code, headers = get_work_assets_with_http_info(work_id, opts)
+      data, _status_code, _headers = get_work_assets_with_http_info(work_id, opts)
       return data
     end
 
@@ -405,11 +445,16 @@ module MetatronClient
     # @return [Array<(AssetResultSet, Fixnum, Hash)>] AssetResultSet data, response status code and response headers
     def get_work_assets_with_http_info(work_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#get_work_assets ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.get_work_assets ..."
       end
       
+      
       # verify the required parameter 'work_id' is set
-      fail "Missing the required parameter 'work_id' when calling get_work_assets" if work_id.nil?
+      fail ArgumentError, "Missing the required parameter 'work_id' when calling DefaultApi.get_work_assets" if work_id.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/works/{workId}/assets".sub('{format}','json').sub('{' + 'workId' + '}', work_id.to_s)
@@ -421,12 +466,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -465,11 +510,16 @@ module MetatronClient
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def get_work_manifestations_with_http_info(work_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#get_work_manifestations ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.get_work_manifestations ..."
       end
       
+      
       # verify the required parameter 'work_id' is set
-      fail "Missing the required parameter 'work_id' when calling get_work_manifestations" if work_id.nil?
+      fail ArgumentError, "Missing the required parameter 'work_id' when calling DefaultApi.get_work_manifestations" if work_id.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/works/{workId}/manifestations".sub('{format}','json').sub('{' + 'workId' + '}', work_id.to_s)
@@ -481,12 +531,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -514,7 +564,7 @@ module MetatronClient
     # @option opts [String] :work_id The ID of a work
     # @return [ManifestationResultSet]
     def manifestation(opts = {})
-      data, status_code, headers = manifestation_with_http_info(opts)
+      data, _status_code, _headers = manifestation_with_http_info(opts)
       return data
     end
 
@@ -526,8 +576,20 @@ module MetatronClient
     # @return [Array<(ManifestationResultSet, Fixnum, Hash)>] ManifestationResultSet data, response status code and response headers
     def manifestation_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#manifestation ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.manifestation ..."
       end
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/manifestations".sub('{format}','json')
@@ -541,12 +603,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -587,14 +649,24 @@ module MetatronClient
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
     def remove_asset_with_http_info(asset_id, asset_type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#remove_asset ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.remove_asset ..."
       end
       
+      
       # verify the required parameter 'asset_id' is set
-      fail "Missing the required parameter 'asset_id' when calling remove_asset" if asset_id.nil?
+      fail ArgumentError, "Missing the required parameter 'asset_id' when calling DefaultApi.remove_asset" if asset_id.nil?
+      
+      
+      
+      
+      
       
       # verify the required parameter 'asset_type' is set
-      fail "Missing the required parameter 'asset_type' when calling remove_asset" if asset_type.nil?
+      fail ArgumentError, "Missing the required parameter 'asset_type' when calling DefaultApi.remove_asset" if asset_type.nil?
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/assets/{assetType}/{assetId}".sub('{format}','json').sub('{' + 'assetId' + '}', asset_id.to_s).sub('{' + 'assetType' + '}', asset_type.to_s)
@@ -606,12 +678,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}
@@ -641,7 +713,7 @@ module MetatronClient
     # @option opts [Array<String>] :include Define which relationships to include, comma separated
     # @return [WorkResultSet]
     def work(q, limit, offset, opts = {})
-      data, status_code, headers = work_with_http_info(q, limit, offset, opts)
+      data, _status_code, _headers = work_with_http_info(q, limit, offset, opts)
       return data
     end
 
@@ -655,17 +727,38 @@ module MetatronClient
     # @return [Array<(WorkResultSet, Fixnum, Hash)>] WorkResultSet data, response status code and response headers
     def work_with_http_info(q, limit, offset, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#work ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi.work ..."
       end
       
+      
       # verify the required parameter 'q' is set
-      fail "Missing the required parameter 'q' when calling work" if q.nil?
+      fail ArgumentError, "Missing the required parameter 'q' when calling DefaultApi.work" if q.nil?
+      
+      
+      
+      
+      
       
       # verify the required parameter 'limit' is set
-      fail "Missing the required parameter 'limit' when calling work" if limit.nil?
+      fail ArgumentError, "Missing the required parameter 'limit' when calling DefaultApi.work" if limit.nil?
+      
+      
+      
+      
+      
       
       # verify the required parameter 'offset' is set
-      fail "Missing the required parameter 'offset' when calling work" if offset.nil?
+      fail ArgumentError, "Missing the required parameter 'offset' when calling DefaultApi.work" if offset.nil?
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
       
       # resource path
       local_var_path = "/works".sub('{format}','json')
@@ -681,12 +774,12 @@ module MetatronClient
       header_params = {}
 
       # HTTP header 'Accept' (if needed)
-      _header_accept = ['application/vnd.api+json']
-      _header_accept_result = @api_client.select_header_accept(_header_accept) and header_params['Accept'] = _header_accept_result
+      local_header_accept = ['application/vnd.api+json']
+      local_header_accept_result = @api_client.select_header_accept(local_header_accept) and header_params['Accept'] = local_header_accept_result
 
       # HTTP header 'Content-Type'
-      _header_content_type = ['application/json']
-      header_params['Content-Type'] = @api_client.select_header_content_type(_header_content_type)
+      local_header_content_type = ['application/json']
+      header_params['Content-Type'] = @api_client.select_header_content_type(local_header_content_type)
 
       # form parameters
       form_params = {}

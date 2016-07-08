@@ -3,9 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**type** | **String** |  | 
-**attributes** | [**WorkAttributes**](WorkAttributes.md) |  | 
-**relationships** | [**WorkRelationships**](WorkRelationships.md) |  | [optional] 
+**links** | [**Links**](Links.md) |  | [optional] 
+**data** | [**WorkData**](WorkData.md) |  | 
 
 

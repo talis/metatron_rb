@@ -64,7 +64,7 @@ Name | Type | Description  | Notes
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -117,7 +117,7 @@ Name | Type | Description  | Notes
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -166,7 +166,7 @@ nil (empty response body)
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -216,7 +216,7 @@ Name | Type | Description  | Notes
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -265,7 +265,7 @@ nil (empty response body)
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -315,7 +315,7 @@ Name | Type | Description  | Notes
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -365,7 +365,7 @@ Name | Type | Description  | Notes
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -414,7 +414,7 @@ nil (empty response body)
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -468,7 +468,7 @@ Name | Type | Description  | Notes
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -521,7 +521,7 @@ nil (empty response body)
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
@@ -581,7 +581,7 @@ Name | Type | Description  | Notes
 
 [oauth2](../README.md#oauth2)
 
-### HTTP reuqest headers
+### HTTP request headers
 
  - **Content-Type**: application/json
  - **Accept**: application/vnd.api+json
