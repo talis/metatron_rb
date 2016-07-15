@@ -19,18 +19,14 @@ module MetatronClient
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
-        
         :'super_type' => :'super_type'
-        
       }
     end
 
     # Attribute type mapping.
     def self.swagger_types
       {
-        
         :'super_type' => :'String'
-        
       }
     end
 
@@ -42,44 +38,28 @@ module MetatronClient
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
 
-      
       if attributes.has_key?(:'super_type')
-        
-        
         self.super_type = attributes[:'super_type']
-        
-      
       end
 
-      
     end
 
     # Show invalid properties with the reasons. Usually used together with valid?
     # @return Array for valid properies with the reasons
     def list_invalid_properties
       invalid_properties = Array.new
-      
-      
       return invalid_properties
     end
 
     # Check to see if the all the properties in the model are valid
     # @return true if the model is valid
     def valid?
-      
-      
-      
       allowed_values = ["assets"]
       if @super_type && !allowed_values.include?(@super_type)
         return false
       end
-      
-      
-      
     end
 
-    
-    
     # Custom attribute writer method checking allowed values (enum).
     # @param [Object] super_type Object to be assigned
     def super_type=(super_type)
@@ -90,9 +70,6 @@ module MetatronClient
       @super_type = super_type
     end
 
-    
-    
-    
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared 
     def ==(o)

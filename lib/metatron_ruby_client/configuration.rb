@@ -92,9 +92,9 @@ module MetatronClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'http'
-      @host = 'localhost:3000'
-      @base_path = '/2'
+      @scheme = 'https'
+      @host = 'bibliography.talis.com'
+      @base_path = ''
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0
@@ -157,12 +157,12 @@ module MetatronClient
     # Returns Auth Settings hash for api client.
     def auth_settings
       {
-        'oauth2' =>
+        'Authorizer' =>
           {
-            type: 'oauth2',
+            type: 'api_key',
             in: 'header',
             key: 'Authorization',
-            value: "Bearer #{access_token}"
+            value: api_key_with_prefix('Authorization')
           },
       }
     end
