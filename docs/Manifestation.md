@@ -3,9 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**type** | **String** |  | 
-**attributes** | [**ManifestationAttributes**](ManifestationAttributes.md) |  | 
-**relationships** | [**ManifestationRelationships**](ManifestationRelationships.md) |  | [optional] 
+**links** | [**Links**](Links.md) |  | [optional] 
+**data** | [**ManifestationData**](ManifestationData.md) |  | 
 
 

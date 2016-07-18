@@ -32,7 +32,7 @@ describe 'Asset' do
       @instance.should be_a(MetatronClient::Asset) 
     end
   end
-  describe 'test attribute "id"' do
+  describe 'test attribute "meta"' do
     it 'should work' do
        # assertion here
        # should be_a()
@@ -42,17 +42,7 @@ describe 'Asset' do
     end
   end
 
-  describe 'test attribute "type"' do
-    it 'should work' do
-       # assertion here
-       # should be_a()
-       # should be_nil
-       # should ==
-       # should_not ==
-    end
-  end
-
-  describe 'test attribute "attributes"' do
+  describe 'test attribute "data"' do
     it 'should work' do
        # assertion here
        # should be_a()

@@ -3,8 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**Meta**](Meta.md) |  | [optional] 
+**meta** | **Object** |  | [optional] 
 **links** | [**Links**](Links.md) |  | [optional] 
-**data** | [**Resource**](Resource.md) |  | 
+**data** | [**ResourceLink**](ResourceLink.md) |  | 
 
 

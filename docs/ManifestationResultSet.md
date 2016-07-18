@@ -4,7 +4,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **links** | [**Links**](Links.md) |  | 
-**meta** | [**Meta**](Meta.md) |  | 
-**data** | [**Array&lt;Manifestation&gt;**](Manifestation.md) |  | 
+**meta** | [**ResultSetMeta**](ResultSetMeta.md) |  | 
+**data** | [**Array&lt;ManifestationData&gt;**](ManifestationData.md) |  | 
 
 

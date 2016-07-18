@@ -1,0 +1,756 @@
+---
+swagger: "2.0"
+info:
+  version: "2016-07-15T09:42:29Z"
+  title: "production-metatron-api"
+host: "bibliography.talis.com"
+schemes:
+- "https"
+paths:
+  /2/assets/{assetType}/{assetId}:
+    delete:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      - "application/json"
+      parameters:
+      - name: "assetId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "assetType"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/manifestations:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      - "application/json"
+      parameters:
+      - name: "work_id"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "isbn"
+        in: "query"
+        required: false
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/ManifestationResultSet"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/manifestations/{manifestationId}:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/manifestations/{manifestationId}/assets:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      - "application/json"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/AssetResultSet"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+    post:
+      consumes:
+      - "application/vnd.api+json"
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      - "application/json"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      - in: "body"
+        name: "Asset"
+        required: true
+        schema:
+          $ref: "#/definitions/Asset"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/Asset"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/manifestations/{manifestationId}/items/{tenantCode}:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      - name: "tenantCode"
+        in: "path"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/ItemResultSet"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/manifestations/{manifestationId}/works:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      parameters:
+      - name: "manifestationId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/works:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      - "application/json"
+      parameters:
+      - name: "limit"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "include"
+        in: "query"
+        required: false
+        type: "string"
+      - name: "offset"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "q"
+        in: "query"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/WorkResultSet"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/works/{workId}/assets:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      - "application/json"
+      parameters:
+      - name: "workId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/AssetResultSet"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/works/{workId}/manifestations:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      parameters:
+      - name: "workId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+  /2/works/{workId}/similar:
+    get:
+      consumes:
+      - "application/json"
+      produces:
+      - "application/vnd.api+json"
+      parameters:
+      - name: "workId"
+        in: "path"
+        required: true
+        type: "string"
+      - name: "Authorization"
+        in: "header"
+        required: true
+        type: "string"
+      responses:
+        200:
+          description: "200 response"
+          schema:
+            $ref: "#/definitions/WorkResultSet"
+        400:
+          description: "400 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        401:
+          description: "401 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        403:
+          description: "403 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        404:
+          description: "404 response"
+          schema:
+            $ref: "#/definitions/Errors"
+        500:
+          description: "500 response"
+          schema:
+            $ref: "#/definitions/Errors"
+      security:
+      - Authorizer: []
+securityDefinitions:
+  Authorizer:
+    type: "apiKey"
+    name: "Authorization"
+    in: "header"
+    x-amazon-apigateway-authtype: "custom"
+definitions:
+  WorkRelationships:
+    type: "object"
+    properties:
+      manifestations:
+        $ref: "#/definitions/OneToManyRelationship"
+  WorkResultSet:
+    type: "object"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/ResultSetMeta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/WorkData"
+      included:
+        type: "array"
+        items:
+          $ref: "#/definitions/ResourceData"
+  ResourceData:
+    type: "object"
+    required:
+    - "attributes"
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+      attributes:
+        type: "object"
+        properties: {}
+      relationships:
+        type: "object"
+        properties: {}
+  ResultSetMeta:
+    type: "object"
+    properties:
+      offset:
+        type: "number"
+        description: "start index of this set"
+      limit:
+        type: "number"
+        description: "max limit of records in this set"
+      count:
+        type: "number"
+        description: "total count of all matches"
+  OneToOneRelationship:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      meta:
+        type: "object"
+        properties: {}
+      links:
+        $ref: "#/definitions/Links"
+      data:
+        $ref: "#/definitions/ResourceLink"
+  WorkAttributes:
+    type: "object"
+    required:
+    - "title"
+    properties:
+      title:
+        type: "string"
+  ManifestationAttributes:
+    type: "object"
+    properties:
+      format:
+        type: "string"
+      identifiers:
+        type: "object"
+        properties: {}
+      place_of_publication:
+        type: "string"
+      publishing_status:
+        type: "string"
+  Error:
+    type: "object"
+    required:
+    - "status"
+    - "title"
+    properties:
+      status:
+        type: "number"
+      title:
+        type: "string"
+      detail:
+        type: "string"
+  AssetData:
+    type: "object"
+    required:
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+      attributes:
+        type: "object"
+        properties: {}
+  ItemResultSet:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/ResultSetMeta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/ItemData"
+  AssetResultSet:
+    type: "object"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/AssetResultSet_meta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/AssetData"
+  OneToManyRelationship:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      meta:
+        type: "object"
+        properties: {}
+      links:
+        $ref: "#/definitions/Links"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/ResourceLink"
+  Errors:
+    type: "object"
+    properties:
+      errors:
+        type: "array"
+        items:
+          $ref: "#/definitions/Error"
+  ManifestationResultSet:
+    type: "object"
+    required:
+    - "data"
+    - "links"
+    - "meta"
+    properties:
+      links:
+        $ref: "#/definitions/Links"
+      meta:
+        $ref: "#/definitions/ResultSetMeta"
+      data:
+        type: "array"
+        items:
+          $ref: "#/definitions/ManifestationData"
+  ResourceLink:
+    type: "object"
+    required:
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+  ManifestationRelationships:
+    type: "object"
+    properties:
+      contributors:
+        $ref: "#/definitions/OneToManyRelationship"
+      assets:
+        $ref: "#/definitions/OneToManyRelationship"
+      work:
+        $ref: "#/definitions/OneToOneRelationship"
+  ManifestationData:
+    type: "object"
+    required:
+    - "attributes"
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "manifestations"
+      attributes:
+        $ref: "#/definitions/ManifestationAttributes"
+      relationships:
+        $ref: "#/definitions/ManifestationRelationships"
+  Links:
+    type: "object"
+    required:
+    - "self"
+    properties:
+      self:
+        type: "string"
+      next:
+        type: "string"
+      previous:
+        type: "string"
+  Asset:
+    type: "object"
+    required:
+    - "data"
+    properties:
+      meta:
+        $ref: "#/definitions/AssetResultSet_meta"
+      data:
+        $ref: "#/definitions/AssetData"
+  WorkData:
+    type: "object"
+    required:
+    - "attributes"
+    - "id"
+    - "type"
+    properties:
+      id:
+        type: "string"
+      type:
+        type: "string"
+        enum:
+        - "works"
+      attributes:
+        $ref: "#/definitions/WorkAttributes"
+      relationships:
+        $ref: "#/definitions/WorkRelationships"
+  ItemData:
+    type: "object"
+    required:
+    - "id"
+    properties:
+      id:
+        type: "string"
+  AssetResultSet_meta:
+    properties:
+      super_type:
+        type: "string"
+        enum:
+        - "assets"
