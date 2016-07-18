@@ -1,9 +1,9 @@
 require './lib/swaggering'
-require './lib/result_set'
+
 # only need to extend if you want special configuration!
 class MyApp < Swaggering
   self.configure do |config|
-    config.api_version = '2.0.0' 
+    config.api_version = '2016-07-15T09:42:29Z' 
   end
 end
 

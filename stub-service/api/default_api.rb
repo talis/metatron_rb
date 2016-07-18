@@ -1,13 +1,87 @@
 require 'json'
-require 'yaml'
 
-MyApp.add_route('POST', '/2/manifestations/{manifestationId}/assets', {
+
+MyApp.add_route('DELETE', '/2/assets/{assetType}/{assetId}', {
   "resourcePath" => "/Default",
   "summary" => "",
-  "nickname" => "add_manifestation_asset", 
-  "responseClass" => "Asset", 
-  "endpoint" => "/manifestations/{manifestationId}/assets", 
-  "notes" => "Add an asset to the relevant manifestation",
+  "nickname" => "2_assets_asset_type_asset_id_delete", 
+  "responseClass" => "void", 
+  "endpoint" => "/2/assets/{assetType}/{assetId}", 
+  "notes" => "",
+  "parameters" => [
+    {
+      "name" => "asset_id",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "path",
+    },
+    {
+      "name" => "asset_type",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "path",
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('GET', '/2/manifestations', {
+  "resourcePath" => "/Default",
+  "summary" => "",
+  "nickname" => "2_manifestations_get", 
+  "responseClass" => "ManifestationResultSet", 
+  "endpoint" => "/2/manifestations", 
+  "notes" => "",
+  "parameters" => [
+    {
+      "name" => "work_id",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "query",
+      
+      "allowableValues" => "",
+      
+    },
+    {
+      "name" => "isbn",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "query",
+      
+      "allowableValues" => "",
+      
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('GET', '/2/manifestations/{manifestationId}/assets', {
+  "resourcePath" => "/Default",
+  "summary" => "",
+  "nickname" => "2_manifestations_manifestation_id_assets_get", 
+  "responseClass" => "AssetResultSet", 
+  "endpoint" => "/2/manifestations/{manifestationId}/assets", 
+  "notes" => "",
   "parameters" => [
     {
       "name" => "manifestation_id",
@@ -16,8 +90,42 @@ MyApp.add_route('POST', '/2/manifestations/{manifestationId}/assets', {
       "paramType" => "path",
     },
     {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('POST', '/2/manifestations/{manifestationId}/assets', {
+  "resourcePath" => "/Default",
+  "summary" => "",
+  "nickname" => "2_manifestations_manifestation_id_assets_post", 
+  "responseClass" => "Asset", 
+  "endpoint" => "/2/manifestations/{manifestationId}/assets", 
+  "notes" => "",
+  "parameters" => [
+    {
+      "name" => "manifestation_id",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "path",
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    {
       "name" => "body",
-      "description" => "node",
+      "description" => "",
       "dataType" => "Asset",
       "paramType" => "body",
     }
@@ -29,12 +137,40 @@ MyApp.add_route('POST', '/2/manifestations/{manifestationId}/assets', {
 end
 
 
+MyApp.add_route('GET', '/2/manifestations/{manifestationId}', {
+  "resourcePath" => "/Default",
+  "summary" => "",
+  "nickname" => "2_manifestations_manifestation_id_get", 
+  "responseClass" => "void", 
+  "endpoint" => "/2/manifestations/{manifestationId}", 
+  "notes" => "",
+  "parameters" => [
+    {
+      "name" => "manifestation_id",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "path",
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
 MyApp.add_route('GET', '/2/manifestations/{manifestationId}/items/{tenantCode}', {
   "resourcePath" => "/Default",
-  "summary" => "Get local holdings for a given manifestation",
-  "nickname" => "get_holdings", 
+  "summary" => "",
+  "nickname" => "2_manifestations_manifestation_id_items_tenant_code_get", 
   "responseClass" => "ItemResultSet", 
-  "endpoint" => "/manifestations/{manifestationId}/items/{tenantCode}", 
+  "endpoint" => "/2/manifestations/{manifestationId}/items/{tenantCode}", 
   "notes" => "",
   "parameters" => [
     {
@@ -49,49 +185,11 @@ MyApp.add_route('GET', '/2/manifestations/{manifestationId}/items/{tenantCode}',
       "dataType" => "string",
       "paramType" => "path",
     },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-
-
-MyApp.add_route('GET', '/2/manifestations/{manifestationId}', {
-  "resourcePath" => "/Default",
-  "summary" => "Get a specific Manifestation from the dataset",
-  "nickname" => "get_manifestation", 
-  "responseClass" => "void", 
-  "endpoint" => "/manifestations/{manifestationId}", 
-  "notes" => "",
-  "parameters" => [
     {
-      "name" => "manifestation_id",
+      "name" => "authorization",
       "description" => "",
       "dataType" => "string",
-      "paramType" => "path",
-    },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-
-
-MyApp.add_route('GET', '/2/manifestations/{manifestationId}/assets', {
-  "resourcePath" => "/Default",
-  "summary" => "Get a set of Assets that are associated with a specific Manifestation",
-  "nickname" => "get_manifestation_assets", 
-  "responseClass" => "AssetResultSet", 
-  "endpoint" => "/manifestations/{manifestationId}/assets", 
-  "notes" => "",
-  "parameters" => [
-    {
-      "name" => "manifestation_id",
-      "description" => "",
-      "dataType" => "string",
-      "paramType" => "path",
+      "paramType" => "header",
     },
     ]}) do
   cross_origin
@@ -103,10 +201,10 @@ end
 
 MyApp.add_route('GET', '/2/manifestations/{manifestationId}/works', {
   "resourcePath" => "/Default",
-  "summary" => "Get a set of Works relating to a given Manifestation. Usually there will be one current work, but due to previous titles there might be more than one Work.",
-  "nickname" => "get_manifestation_works", 
+  "summary" => "",
+  "nickname" => "2_manifestations_manifestation_id_works_get", 
   "responseClass" => "void", 
-  "endpoint" => "/manifestations/{manifestationId}/works", 
+  "endpoint" => "/2/manifestations/{manifestationId}/works", 
   "notes" => "",
   "parameters" => [
     {
@@ -115,133 +213,11 @@ MyApp.add_route('GET', '/2/manifestations/{manifestationId}/works', {
       "dataType" => "string",
       "paramType" => "path",
     },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-
-
-MyApp.add_route('GET', '/2/works/{workId}/similar', {
-  "resourcePath" => "/Default",
-  "summary" => "Get a set of Works that are similar to a specific Work",
-  "nickname" => "get_work", 
-  "responseClass" => "WorkResultSet", 
-  "endpoint" => "/works/{workId}/similar", 
-  "notes" => "",
-  "parameters" => [
     {
-      "name" => "work_id",
+      "name" => "authorization",
       "description" => "",
       "dataType" => "string",
-      "paramType" => "path",
-    },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-
-
-MyApp.add_route('GET', '/2/works/{workId}/assets', {
-  "resourcePath" => "/Default",
-  "summary" => "Get a set of Assets that are associated with a specific Work",
-  "nickname" => "get_work_assets", 
-  "responseClass" => "AssetResultSet", 
-  "endpoint" => "/works/{workId}/assets", 
-  "notes" => "",
-  "parameters" => [
-    {
-      "name" => "work_id",
-      "description" => "",
-      "dataType" => "string",
-      "paramType" => "path",
-    },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-
-
-MyApp.add_route('GET', '/2/works/{workId}/manifestations', {
-  "resourcePath" => "/Default",
-  "summary" => "Get a set of Manifestations that encompass a specific Work",
-  "nickname" => "get_work_manifestations", 
-  "responseClass" => "void", 
-  "endpoint" => "/works/{workId}/manifestations", 
-  "notes" => "",
-  "parameters" => [
-    {
-      "name" => "work_id",
-      "description" => "",
-      "dataType" => "string",
-      "paramType" => "path",
-    },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-
-
-MyApp.add_route('GET', '/2/manifestations', {
-  "resourcePath" => "/Default",
-  "summary" => "",
-  "nickname" => "manifestation", 
-  "responseClass" => "ManifestationResultSet", 
-  "endpoint" => "/manifestations", 
-  "notes" => "Get the manifestation set best matching the given bibliographic data",
-  "parameters" => [
-    {
-      "name" => "isbn",
-      "description" => "The isbn",
-      "dataType" => "string",
-      "paramType" => "query",
-      
-      "allowableValues" => "",
-      
-    },
-    {
-      "name" => "work_id",
-      "description" => "The ID of a work",
-      "dataType" => "string",
-      "paramType" => "query",
-      
-      "allowableValues" => "",
-      
-    },
-    ]}) do
-  cross_origin
-  # the guts live here
-
-  {"message" => "yes, it worked"}.to_json
-end
-
-
-MyApp.add_route('DELETE', '/2/assets/{assetType}/{assetId}', {
-  "resourcePath" => "/Default",
-  "summary" => "",
-  "nickname" => "remove_asset", 
-  "responseClass" => "void", 
-  "endpoint" => "/assets/{assetType}/{assetId}", 
-  "notes" => "Remove an asset",
-  "parameters" => [
-    {
-      "name" => "asset_id",
-      "description" => "",
-      "dataType" => "string",
-      "paramType" => "path",
-    },
-    {
-      "name" => "asset_type",
-      "description" => "",
-      "dataType" => "string",
-      "paramType" => "path",
+      "paramType" => "header",
     },
     ]}) do
   cross_origin
@@ -253,33 +229,15 @@ end
 
 MyApp.add_route('GET', '/2/works', {
   "resourcePath" => "/Default",
-  "summary" => "Get the work best matching the given bibliographic data",
-  "nickname" => "work", 
+  "summary" => "",
+  "nickname" => "2_works_get", 
   "responseClass" => "WorkResultSet", 
-  "endpoint" => "/works", 
+  "endpoint" => "/2/works", 
   "notes" => "",
   "parameters" => [
     {
-      "name" => "q",
-      "description" => "Search works for the supplied term",
-      "dataType" => "string",
-      "paramType" => "query",
-      
-      "allowableValues" => "",
-      
-    },
-    {
       "name" => "limit",
-      "description" => "Limit the results to n results",
-      "dataType" => "string",
-      "paramType" => "query",
-      
-      "allowableValues" => "",
-      
-    },
-    {
-      "name" => "offset",
-      "description" => "Offset the results to position n",
+      "description" => "",
       "dataType" => "string",
       "paramType" => "query",
       
@@ -288,26 +246,125 @@ MyApp.add_route('GET', '/2/works', {
     },
     {
       "name" => "include",
-      "description" => "Define which relationships to include, comma separated",
-      "dataType" => "array[string]",
+      "description" => "",
+      "dataType" => "string",
       "paramType" => "query",
-      "collectionFormat" => "csv",
+      
       "allowableValues" => "",
       
+    },
+    {
+      "name" => "offset",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "query",
+      
+      "allowableValues" => "",
+      
+    },
+    {
+      "name" => "q",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "query",
+      
+      "allowableValues" => "",
+      
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
     },
     ]}) do
   cross_origin
   # the guts live here
 
-  content_type('application/vnd.api+json')
-  response = ResultSet.load Dir.pwd + '/responses/works/result_set.yaml'
-  if params['include']
-    params['include'].split(',').each do |include|
-      file = Dir.pwd + "/responses/works/includes/#{include}.yaml"
-      response.include file if File.exists? file
-    end
-  end
+  {"message" => "yes, it worked"}.to_json
+end
 
-  response.to_json
+
+MyApp.add_route('GET', '/2/works/{workId}/assets', {
+  "resourcePath" => "/Default",
+  "summary" => "",
+  "nickname" => "2_works_work_id_assets_get", 
+  "responseClass" => "AssetResultSet", 
+  "endpoint" => "/2/works/{workId}/assets", 
+  "notes" => "",
+  "parameters" => [
+    {
+      "name" => "work_id",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "path",
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('GET', '/2/works/{workId}/manifestations', {
+  "resourcePath" => "/Default",
+  "summary" => "",
+  "nickname" => "2_works_work_id_manifestations_get", 
+  "responseClass" => "void", 
+  "endpoint" => "/2/works/{workId}/manifestations", 
+  "notes" => "",
+  "parameters" => [
+    {
+      "name" => "work_id",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "path",
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
+end
+
+
+MyApp.add_route('GET', '/2/works/{workId}/similar', {
+  "resourcePath" => "/Default",
+  "summary" => "",
+  "nickname" => "2_works_work_id_similar_get", 
+  "responseClass" => "WorkResultSet", 
+  "endpoint" => "/2/works/{workId}/similar", 
+  "notes" => "",
+  "parameters" => [
+    {
+      "name" => "work_id",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "path",
+    },
+    {
+      "name" => "authorization",
+      "description" => "",
+      "dataType" => "string",
+      "paramType" => "header",
+    },
+    ]}) do
+  cross_origin
+  # the guts live here
+
+  {"message" => "yes, it worked"}.to_json
 end
 
