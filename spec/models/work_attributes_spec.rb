@@ -32,7 +32,27 @@ describe 'WorkAttributes' do
       @instance.should be_a(MetatronClient::WorkAttributes) 
     end
   end
-  describe 'test attribute "title"' do
+  describe 'test attribute "titles"' do
+    it 'should work' do
+       # assertion here
+       # should be_a()
+       # should be_nil
+       # should ==
+       # should_not ==
+    end
+  end
+
+  describe 'test attribute "authors"' do
+    it 'should work' do
+       # assertion here
+       # should be_a()
+       # should be_nil
+       # should ==
+       # should_not ==
+    end
+  end
+
+  describe 'test attribute "isbns"' do
     it 'should work' do
        # assertion here
        # should be_a()
