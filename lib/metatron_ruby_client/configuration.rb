@@ -92,9 +92,9 @@ module MetatronClient
     attr_accessor :force_ending_format
 
     def initialize
-      @scheme = 'https'
-      @host = 'bibliography.talis.com'
-      @base_path = ''
+      @scheme = 'http'
+      @host = 'localhost:3000'
+      @base_path = '/2'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0

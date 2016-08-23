@@ -3,6 +3,8 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**title** | **String** |  | 
+**titles** | **String** |  | 
+**authors** | **Array&lt;String&gt;** |  | [optional] 
+**isbns** | **Array&lt;String&gt;** |  | [optional] 
 
 

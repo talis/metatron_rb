@@ -3,7 +3,7 @@
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**meta** | [**AssetResultSetMeta**](AssetResultSetMeta.md) |  | [optional] 
+**meta** | [**AssetMeta**](AssetMeta.md) |  | [optional] 
 **data** | [**AssetData**](AssetData.md) |  | 
 
 

@@ -35,6 +35,7 @@ describe 'DefaultApi' do
   # unit tests for add_manifestation_asset
   # 
   # Add an asset to the relevant manifestation
+  # @param authorization Bearer token
   # @param manifestation_id 
   # @param body node
   # @param [Hash] opts the optional parameters
@@ -52,6 +53,7 @@ describe 'DefaultApi' do
   # unit tests for get_holdings
   # Get local holdings for a given manifestation
   # 
+  # @param authorization Bearer token
   # @param manifestation_id 
   # @param tenant_code 
   # @param [Hash] opts the optional parameters
@@ -69,6 +71,7 @@ describe 'DefaultApi' do
   # unit tests for get_manifestation
   # Get a specific Manifestation from the dataset
   # 
+  # @param authorization Bearer token
   # @param manifestation_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -85,6 +88,7 @@ describe 'DefaultApi' do
   # unit tests for get_manifestation_assets
   # Get a set of Assets that are associated with a specific Manifestation
   # 
+  # @param authorization Bearer token
   # @param manifestation_id 
   # @param [Hash] opts the optional parameters
   # @return [AssetResultSet]
@@ -101,6 +105,7 @@ describe 'DefaultApi' do
   # unit tests for get_manifestation_works
   # Get a set of Works relating to a given Manifestation. Usually there will be one current work, but due to previous titles there might be more than one Work.
   # 
+  # @param authorization Bearer token
   # @param manifestation_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -117,6 +122,7 @@ describe 'DefaultApi' do
   # unit tests for get_work
   # Get a set of Works that are similar to a specific Work
   # 
+  # @param authorization Bearer token
   # @param work_id 
   # @param [Hash] opts the optional parameters
   # @return [WorkResultSet]
@@ -133,6 +139,7 @@ describe 'DefaultApi' do
   # unit tests for get_work_assets
   # Get a set of Assets that are associated with a specific Work
   # 
+  # @param authorization Bearer token
   # @param work_id 
   # @param [Hash] opts the optional parameters
   # @return [AssetResultSet]
@@ -149,6 +156,7 @@ describe 'DefaultApi' do
   # unit tests for get_work_manifestations
   # Get a set of Manifestations that encompass a specific Work
   # 
+  # @param authorization Bearer token
   # @param work_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
@@ -165,6 +173,7 @@ describe 'DefaultApi' do
   # unit tests for manifestation
   # 
   # Get the manifestation set best matching the given bibliographic data
+  # @param authorization Bearer token
   # @param [Hash] opts the optional parameters
   # @option opts [String] :isbn The isbn
   # @option opts [String] :work_id The ID of a work
@@ -182,6 +191,7 @@ describe 'DefaultApi' do
   # unit tests for remove_asset
   # 
   # Remove an asset
+  # @param authorization Bearer token
   # @param asset_id 
   # @param asset_type 
   # @param [Hash] opts the optional parameters
@@ -199,6 +209,7 @@ describe 'DefaultApi' do
   # unit tests for work
   # Get the work best matching the given bibliographic data
   # 
+  # @param authorization Bearer token
   # @param q Search works for the supplied term
   # @param limit Limit the results to n results
   # @param offset Offset the results to position n
