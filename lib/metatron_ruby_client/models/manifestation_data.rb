@@ -45,7 +45,7 @@ module MetatronClient
         
         :'type' => :'String',
         
-        :'attributes' => :'ManifestationAttributes',
+        :'attributes' => :'Object',
         
         :'relationships' => :'ManifestationRelationships'
         

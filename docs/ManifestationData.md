@@ -5,7 +5,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **id** | **String** |  | 
 **type** | **String** |  | 
-**attributes** | [**ManifestationAttributes**](ManifestationAttributes.md) |  | 
+**attributes** | **Object** |  | 
 **relationships** | [**ManifestationRelationships**](ManifestationRelationships.md) |  | [optional] 
 
 
