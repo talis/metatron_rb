@@ -32,45 +32,5 @@ describe 'ManifestationAttributes' do
       @instance.should be_a(MetatronClient::ManifestationAttributes) 
     end
   end
-  describe 'test attribute "format"' do
-    it 'should work' do
-       # assertion here
-       # should be_a()
-       # should be_nil
-       # should ==
-       # should_not ==
-    end
-  end
-
-  describe 'test attribute "identifiers"' do
-    it 'should work' do
-       # assertion here
-       # should be_a()
-       # should be_nil
-       # should ==
-       # should_not ==
-    end
-  end
-
-  describe 'test attribute "place_of_publication"' do
-    it 'should work' do
-       # assertion here
-       # should be_a()
-       # should be_nil
-       # should ==
-       # should_not ==
-    end
-  end
-
-  describe 'test attribute "publishing_status"' do
-    it 'should work' do
-       # assertion here
-       # should be_a()
-       # should be_nil
-       # should ==
-       # should_not ==
-    end
-  end
-
 end
 
