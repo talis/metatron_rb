@@ -14,9 +14,25 @@ require 'date'
 
 module MetatronClient
   class ManifestationAttributes
+    attr_accessor :format
+
+    attr_accessor :identifiers
+
+    attr_accessor :place_of_publication
+
+    attr_accessor :publishing_status
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
+        
+        :'format' => :'format',
+        
+        :'identifiers' => :'identifiers',
+        
+        :'place_of_publication' => :'place_of_publication',
+        
+        :'publishing_status' => :'publishing_status'
         
       }
     end
@@ -24,6 +40,14 @@ module MetatronClient
     # Attribute type mapping.
     def self.swagger_types
       {
+        
+        :'format' => :'String',
+        
+        :'identifiers' => :'Object',
+        
+        :'place_of_publication' => :'String',
+        
+        :'publishing_status' => :'String'
         
       }
     end
@@ -35,6 +59,42 @@ module MetatronClient
 
       # convert string to symbol for hash key
       attributes = attributes.each_with_object({}){|(k,v), h| h[k.to_sym] = v}
+
+      
+      if attributes.has_key?(:'format')
+        
+        
+        self.format = attributes[:'format']
+        
+      
+      end
+
+      
+      if attributes.has_key?(:'identifiers')
+        
+        
+        self.identifiers = attributes[:'identifiers']
+        
+      
+      end
+
+      
+      if attributes.has_key?(:'place_of_publication')
+        
+        
+        self.place_of_publication = attributes[:'place_of_publication']
+        
+      
+      end
+
+      
+      if attributes.has_key?(:'publishing_status')
+        
+        
+        self.publishing_status = attributes[:'publishing_status']
+        
+      
+      end
 
       
     end
@@ -52,14 +112,54 @@ module MetatronClient
     # @return true if the model is valid
     def valid?
       
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
+      
     end
 
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
+    
     
     # Checks equality by comparing each attribute.
     # @param [Object] Object to be compared 
     def ==(o)
       return true if self.equal?(o)
-      self.class == o.class
+      self.class == o.class &&
+          format == o.format &&
+          identifiers == o.identifiers &&
+          place_of_publication == o.place_of_publication &&
+          publishing_status == o.publishing_status
     end
 
     # @see the `==` method
@@ -71,7 +171,7 @@ module MetatronClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [].hash
+      [format, identifiers, place_of_publication, publishing_status].hash
     end
 
     # Builds the object from hash
