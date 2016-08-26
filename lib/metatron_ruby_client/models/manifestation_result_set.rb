@@ -20,6 +20,8 @@ module MetatronClient
 
     attr_accessor :data
 
+    attr_accessor :included
+
     # Attribute mapping from ruby-style variable name to JSON key.
     def self.attribute_map
       {
@@ -28,7 +30,9 @@ module MetatronClient
         
         :'meta' => :'meta',
         
-        :'data' => :'data'
+        :'data' => :'data',
+        
+        :'included' => :'included'
         
       }
     end
@@ -41,7 +45,9 @@ module MetatronClient
         
         :'meta' => :'ResultSetMeta',
         
-        :'data' => :'Array<ManifestationData>'
+        :'data' => :'Array<ManifestationData>',
+        
+        :'included' => :'Array<ResourceData>'
         
       }
     end
@@ -77,6 +83,17 @@ module MetatronClient
         
         if (value = attributes[:'data']).is_a?(Array)
           self.data = value
+        end
+        
+        
+      
+      end
+
+      
+      if attributes.has_key?(:'included')
+        
+        if (value = attributes[:'included']).is_a?(Array)
+          self.included = value
         end
         
         
@@ -126,8 +143,17 @@ module MetatronClient
       
       
       
+      
+      
+      
+      
     end
 
+    
+    
+    
+    
+    
     
     
     
@@ -151,7 +177,8 @@ module MetatronClient
       self.class == o.class &&
           links == o.links &&
           meta == o.meta &&
-          data == o.data
+          data == o.data &&
+          included == o.included
     end
 
     # @see the `==` method
@@ -163,7 +190,7 @@ module MetatronClient
     # Calculates hash code according to all attributes.
     # @return [Fixnum] Hash code
     def hash
-      [links, meta, data].hash
+      [links, meta, data, included].hash
     end
 
     # Builds the object from hash
