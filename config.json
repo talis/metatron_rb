@@ -1,7 +1,7 @@
 {
     "gemName": "metatron_ruby_client",
     "moduleName": "MetatronClient",
-    "gemVersion": "0.1.1",
+    "gemVersion": "0.1.2",
     "gemLicense": "Copyright Talis Education Ltd",
     "gemHomepage": "https://github.com/talis/metatron_rb",
     "gemSummary": "A ruby API wrapper for Metatron",
