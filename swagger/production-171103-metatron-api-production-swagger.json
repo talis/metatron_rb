@@ -5,11 +5,12 @@
     "title": "production-171103-metatron-api"
   },
   "host": "bibliography.talis.com",
+  "basePath": "/2",
   "schemes": [
     "https"
   ],
   "paths": {
-    "/2/assets/{assetType}/{assetId}": {
+    "/assets/{assetType}/{assetId}": {
       "get": {
         "parameters": [
           {
@@ -82,7 +83,7 @@
         }
       }
     },
-    "/2/manifestations": {
+    "/manifestations": {
       "get": {
         "responses": {},
         "security": [
@@ -119,7 +120,7 @@
         }
       }
     },
-    "/2/manifestations/{manifestationId}/assets": {
+    "/manifestations/{manifestationId}/assets": {
       "get": {
         "parameters": [
           {
@@ -180,7 +181,7 @@
         }
       }
     },
-    "/2/works": {
+    "/works": {
       "get": {
         "responses": {},
         "security": [
@@ -217,7 +218,7 @@
         }
       }
     },
-    "/2/works/{workId}/assets": {
+    "/works/{workId}/assets": {
       "get": {
         "parameters": [
           {

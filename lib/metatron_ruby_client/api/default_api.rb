@@ -24,8 +24,8 @@ module MetatronClient
     # @param asset_type 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_assets_asset_type_asset_id_delete(asset_id, asset_type, opts = {})
-      2_assets_asset_type_asset_id_delete_with_http_info(asset_id, asset_type, opts)
+    def assets_asset_type_asset_id_delete(asset_id, asset_type, opts = {})
+      assets_asset_type_asset_id_delete_with_http_info(asset_id, asset_type, opts)
       return nil
     end
 
@@ -35,19 +35,19 @@ module MetatronClient
     # @param asset_type 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_assets_asset_type_asset_id_delete_with_http_info(asset_id, asset_type, opts = {})
+    def assets_asset_type_asset_id_delete_with_http_info(asset_id, asset_type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_assets_asset_type_asset_id_delete ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#assets_asset_type_asset_id_delete ..."
       end
       
       # verify the required parameter 'asset_id' is set
-      fail "Missing the required parameter 'asset_id' when calling 2_assets_asset_type_asset_id_delete" if asset_id.nil?
+      fail "Missing the required parameter 'asset_id' when calling assets_asset_type_asset_id_delete" if asset_id.nil?
       
       # verify the required parameter 'asset_type' is set
-      fail "Missing the required parameter 'asset_type' when calling 2_assets_asset_type_asset_id_delete" if asset_type.nil?
+      fail "Missing the required parameter 'asset_type' when calling assets_asset_type_asset_id_delete" if asset_type.nil?
       
       # resource path
-      local_var_path = "/2/assets/{assetType}/{assetId}".sub('{format}','json').sub('{' + 'assetId' + '}', asset_id.to_s).sub('{' + 'assetType' + '}', asset_type.to_s)
+      local_var_path = "/assets/{assetType}/{assetId}".sub('{format}','json').sub('{' + 'assetId' + '}', asset_id.to_s).sub('{' + 'assetType' + '}', asset_type.to_s)
 
       # query parameters
       query_params = {}
@@ -77,7 +77,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_assets_asset_type_asset_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#assets_asset_type_asset_id_delete\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -88,8 +88,8 @@ module MetatronClient
     # @param asset_type 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_assets_asset_type_asset_id_get(asset_id, asset_type, opts = {})
-      2_assets_asset_type_asset_id_get_with_http_info(asset_id, asset_type, opts)
+    def assets_asset_type_asset_id_get(asset_id, asset_type, opts = {})
+      assets_asset_type_asset_id_get_with_http_info(asset_id, asset_type, opts)
       return nil
     end
 
@@ -99,19 +99,19 @@ module MetatronClient
     # @param asset_type 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_assets_asset_type_asset_id_get_with_http_info(asset_id, asset_type, opts = {})
+    def assets_asset_type_asset_id_get_with_http_info(asset_id, asset_type, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_assets_asset_type_asset_id_get ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#assets_asset_type_asset_id_get ..."
       end
       
       # verify the required parameter 'asset_id' is set
-      fail "Missing the required parameter 'asset_id' when calling 2_assets_asset_type_asset_id_get" if asset_id.nil?
+      fail "Missing the required parameter 'asset_id' when calling assets_asset_type_asset_id_get" if asset_id.nil?
       
       # verify the required parameter 'asset_type' is set
-      fail "Missing the required parameter 'asset_type' when calling 2_assets_asset_type_asset_id_get" if asset_type.nil?
+      fail "Missing the required parameter 'asset_type' when calling assets_asset_type_asset_id_get" if asset_type.nil?
       
       # resource path
-      local_var_path = "/2/assets/{assetType}/{assetId}".sub('{format}','json').sub('{' + 'assetId' + '}', asset_id.to_s).sub('{' + 'assetType' + '}', asset_type.to_s)
+      local_var_path = "/assets/{assetType}/{assetId}".sub('{format}','json').sub('{' + 'assetId' + '}', asset_id.to_s).sub('{' + 'assetType' + '}', asset_type.to_s)
 
       # query parameters
       query_params = {}
@@ -141,7 +141,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_assets_asset_type_asset_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#assets_asset_type_asset_id_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -150,8 +150,8 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_assets_asset_type_asset_id_options(opts = {})
-      2_assets_asset_type_asset_id_options_with_http_info(opts)
+    def assets_asset_type_asset_id_options(opts = {})
+      assets_asset_type_asset_id_options_with_http_info(opts)
       return nil
     end
 
@@ -159,13 +159,13 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_assets_asset_type_asset_id_options_with_http_info(opts = {})
+    def assets_asset_type_asset_id_options_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_assets_asset_type_asset_id_options ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#assets_asset_type_asset_id_options ..."
       end
       
       # resource path
-      local_var_path = "/2/assets/{assetType}/{assetId}".sub('{format}','json')
+      local_var_path = "/assets/{assetType}/{assetId}".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -195,7 +195,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_assets_asset_type_asset_id_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#assets_asset_type_asset_id_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -204,8 +204,8 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_manifestations_get(opts = {})
-      2_manifestations_get_with_http_info(opts)
+    def manifestations_get(opts = {})
+      manifestations_get_with_http_info(opts)
       return nil
     end
 
@@ -213,13 +213,13 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_manifestations_get_with_http_info(opts = {})
+    def manifestations_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_manifestations_get ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#manifestations_get ..."
       end
       
       # resource path
-      local_var_path = "/2/manifestations".sub('{format}','json')
+      local_var_path = "/manifestations".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -249,7 +249,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_manifestations_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#manifestations_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -259,8 +259,8 @@ module MetatronClient
     # @param manifestation_id 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_manifestations_manifestation_id_assets_get(manifestation_id, opts = {})
-      2_manifestations_manifestation_id_assets_get_with_http_info(manifestation_id, opts)
+    def manifestations_manifestation_id_assets_get(manifestation_id, opts = {})
+      manifestations_manifestation_id_assets_get_with_http_info(manifestation_id, opts)
       return nil
     end
 
@@ -269,16 +269,16 @@ module MetatronClient
     # @param manifestation_id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_manifestations_manifestation_id_assets_get_with_http_info(manifestation_id, opts = {})
+    def manifestations_manifestation_id_assets_get_with_http_info(manifestation_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_manifestations_manifestation_id_assets_get ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#manifestations_manifestation_id_assets_get ..."
       end
       
       # verify the required parameter 'manifestation_id' is set
-      fail "Missing the required parameter 'manifestation_id' when calling 2_manifestations_manifestation_id_assets_get" if manifestation_id.nil?
+      fail "Missing the required parameter 'manifestation_id' when calling manifestations_manifestation_id_assets_get" if manifestation_id.nil?
       
       # resource path
-      local_var_path = "/2/manifestations/{manifestationId}/assets".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
+      local_var_path = "/manifestations/{manifestationId}/assets".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
 
       # query parameters
       query_params = {}
@@ -308,7 +308,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_manifestations_manifestation_id_assets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#manifestations_manifestation_id_assets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -317,8 +317,8 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_manifestations_manifestation_id_assets_options(opts = {})
-      2_manifestations_manifestation_id_assets_options_with_http_info(opts)
+    def manifestations_manifestation_id_assets_options(opts = {})
+      manifestations_manifestation_id_assets_options_with_http_info(opts)
       return nil
     end
 
@@ -326,13 +326,13 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_manifestations_manifestation_id_assets_options_with_http_info(opts = {})
+    def manifestations_manifestation_id_assets_options_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_manifestations_manifestation_id_assets_options ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#manifestations_manifestation_id_assets_options ..."
       end
       
       # resource path
-      local_var_path = "/2/manifestations/{manifestationId}/assets".sub('{format}','json')
+      local_var_path = "/manifestations/{manifestationId}/assets".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -362,7 +362,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_manifestations_manifestation_id_assets_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#manifestations_manifestation_id_assets_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -372,8 +372,8 @@ module MetatronClient
     # @param manifestation_id 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_manifestations_manifestation_id_assets_post(manifestation_id, opts = {})
-      2_manifestations_manifestation_id_assets_post_with_http_info(manifestation_id, opts)
+    def manifestations_manifestation_id_assets_post(manifestation_id, opts = {})
+      manifestations_manifestation_id_assets_post_with_http_info(manifestation_id, opts)
       return nil
     end
 
@@ -382,16 +382,16 @@ module MetatronClient
     # @param manifestation_id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_manifestations_manifestation_id_assets_post_with_http_info(manifestation_id, opts = {})
+    def manifestations_manifestation_id_assets_post_with_http_info(manifestation_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_manifestations_manifestation_id_assets_post ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#manifestations_manifestation_id_assets_post ..."
       end
       
       # verify the required parameter 'manifestation_id' is set
-      fail "Missing the required parameter 'manifestation_id' when calling 2_manifestations_manifestation_id_assets_post" if manifestation_id.nil?
+      fail "Missing the required parameter 'manifestation_id' when calling manifestations_manifestation_id_assets_post" if manifestation_id.nil?
       
       # resource path
-      local_var_path = "/2/manifestations/{manifestationId}/assets".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
+      local_var_path = "/manifestations/{manifestationId}/assets".sub('{format}','json').sub('{' + 'manifestationId' + '}', manifestation_id.to_s)
 
       # query parameters
       query_params = {}
@@ -421,7 +421,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_manifestations_manifestation_id_assets_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#manifestations_manifestation_id_assets_post\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -430,8 +430,8 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_manifestations_options(opts = {})
-      2_manifestations_options_with_http_info(opts)
+    def manifestations_options(opts = {})
+      manifestations_options_with_http_info(opts)
       return nil
     end
 
@@ -439,13 +439,13 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_manifestations_options_with_http_info(opts = {})
+    def manifestations_options_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_manifestations_options ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#manifestations_options ..."
       end
       
       # resource path
-      local_var_path = "/2/manifestations".sub('{format}','json')
+      local_var_path = "/manifestations".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -475,7 +475,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_manifestations_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#manifestations_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -484,8 +484,8 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_works_get(opts = {})
-      2_works_get_with_http_info(opts)
+    def works_get(opts = {})
+      works_get_with_http_info(opts)
       return nil
     end
 
@@ -493,13 +493,13 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_works_get_with_http_info(opts = {})
+    def works_get_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_works_get ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#works_get ..."
       end
       
       # resource path
-      local_var_path = "/2/works".sub('{format}','json')
+      local_var_path = "/works".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -529,7 +529,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_works_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#works_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -538,8 +538,8 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_works_options(opts = {})
-      2_works_options_with_http_info(opts)
+    def works_options(opts = {})
+      works_options_with_http_info(opts)
       return nil
     end
 
@@ -547,13 +547,13 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_works_options_with_http_info(opts = {})
+    def works_options_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_works_options ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#works_options ..."
       end
       
       # resource path
-      local_var_path = "/2/works".sub('{format}','json')
+      local_var_path = "/works".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -583,7 +583,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_works_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#works_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -593,8 +593,8 @@ module MetatronClient
     # @param work_id 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_works_work_id_assets_get(work_id, opts = {})
-      2_works_work_id_assets_get_with_http_info(work_id, opts)
+    def works_work_id_assets_get(work_id, opts = {})
+      works_work_id_assets_get_with_http_info(work_id, opts)
       return nil
     end
 
@@ -603,16 +603,16 @@ module MetatronClient
     # @param work_id 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_works_work_id_assets_get_with_http_info(work_id, opts = {})
+    def works_work_id_assets_get_with_http_info(work_id, opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_works_work_id_assets_get ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#works_work_id_assets_get ..."
       end
       
       # verify the required parameter 'work_id' is set
-      fail "Missing the required parameter 'work_id' when calling 2_works_work_id_assets_get" if work_id.nil?
+      fail "Missing the required parameter 'work_id' when calling works_work_id_assets_get" if work_id.nil?
       
       # resource path
-      local_var_path = "/2/works/{workId}/assets".sub('{format}','json').sub('{' + 'workId' + '}', work_id.to_s)
+      local_var_path = "/works/{workId}/assets".sub('{format}','json').sub('{' + 'workId' + '}', work_id.to_s)
 
       # query parameters
       query_params = {}
@@ -642,7 +642,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_works_work_id_assets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#works_work_id_assets_get\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end
@@ -651,8 +651,8 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [nil]
-    def 2_works_work_id_assets_options(opts = {})
-      2_works_work_id_assets_options_with_http_info(opts)
+    def works_work_id_assets_options(opts = {})
+      works_work_id_assets_options_with_http_info(opts)
       return nil
     end
 
@@ -660,13 +660,13 @@ module MetatronClient
     # 
     # @param [Hash] opts the optional parameters
     # @return [Array<(nil, Fixnum, Hash)>] nil, response status code and response headers
-    def 2_works_work_id_assets_options_with_http_info(opts = {})
+    def works_work_id_assets_options_with_http_info(opts = {})
       if @api_client.config.debugging
-        @api_client.config.logger.debug "Calling API: DefaultApi#2_works_work_id_assets_options ..."
+        @api_client.config.logger.debug "Calling API: DefaultApi#works_work_id_assets_options ..."
       end
       
       # resource path
-      local_var_path = "/2/works/{workId}/assets".sub('{format}','json')
+      local_var_path = "/works/{workId}/assets".sub('{format}','json')
 
       # query parameters
       query_params = {}
@@ -696,7 +696,7 @@ module MetatronClient
         :body => post_body,
         :auth_names => auth_names)
       if @api_client.config.debugging
-        @api_client.config.logger.debug "API called: DefaultApi#2_works_work_id_assets_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
+        @api_client.config.logger.debug "API called: DefaultApi#works_work_id_assets_options\nData: #{data.inspect}\nStatus code: #{status_code}\nHeaders: #{headers}"
       end
       return data, status_code, headers
     end

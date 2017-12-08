@@ -94,7 +94,7 @@ module MetatronClient
     def initialize
       @scheme = 'https'
       @host = 'bibliography.talis.com'
-      @base_path = ''
+      @base_path = '/2'
       @api_key = {}
       @api_key_prefix = {}
       @timeout = 0

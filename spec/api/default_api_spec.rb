@@ -30,14 +30,14 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_assets_asset_type_asset_id_delete
+  # unit tests for assets_asset_type_asset_id_delete
   # 
   # 
   # @param asset_id 
   # @param asset_type 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_assets_asset_type_asset_id_delete test' do
+  describe 'assets_asset_type_asset_id_delete test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -47,14 +47,14 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_assets_asset_type_asset_id_get
+  # unit tests for assets_asset_type_asset_id_get
   # 
   # 
   # @param asset_id 
   # @param asset_type 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_assets_asset_type_asset_id_get test' do
+  describe 'assets_asset_type_asset_id_get test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -64,12 +64,12 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_assets_asset_type_asset_id_options
+  # unit tests for assets_asset_type_asset_id_options
   # 
   # 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_assets_asset_type_asset_id_options test' do
+  describe 'assets_asset_type_asset_id_options test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -79,12 +79,12 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_manifestations_get
+  # unit tests for manifestations_get
   # 
   # 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_manifestations_get test' do
+  describe 'manifestations_get test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -94,13 +94,13 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_manifestations_manifestation_id_assets_get
+  # unit tests for manifestations_manifestation_id_assets_get
   # 
   # 
   # @param manifestation_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_manifestations_manifestation_id_assets_get test' do
+  describe 'manifestations_manifestation_id_assets_get test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -110,12 +110,12 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_manifestations_manifestation_id_assets_options
+  # unit tests for manifestations_manifestation_id_assets_options
   # 
   # 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_manifestations_manifestation_id_assets_options test' do
+  describe 'manifestations_manifestation_id_assets_options test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -125,13 +125,13 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_manifestations_manifestation_id_assets_post
+  # unit tests for manifestations_manifestation_id_assets_post
   # 
   # 
   # @param manifestation_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_manifestations_manifestation_id_assets_post test' do
+  describe 'manifestations_manifestation_id_assets_post test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -141,12 +141,12 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_manifestations_options
+  # unit tests for manifestations_options
   # 
   # 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_manifestations_options test' do
+  describe 'manifestations_options test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -156,12 +156,12 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_works_get
+  # unit tests for works_get
   # 
   # 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_works_get test' do
+  describe 'works_get test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -171,12 +171,12 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_works_options
+  # unit tests for works_options
   # 
   # 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_works_options test' do
+  describe 'works_options test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -186,13 +186,13 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_works_work_id_assets_get
+  # unit tests for works_work_id_assets_get
   # 
   # 
   # @param work_id 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_works_work_id_assets_get test' do
+  describe 'works_work_id_assets_get test' do
     it "should work" do
       # assertion here
       # should be_a()
@@ -202,12 +202,12 @@ describe 'DefaultApi' do
     end
   end
 
-  # unit tests for 2_works_work_id_assets_options
+  # unit tests for works_work_id_assets_options
   # 
   # 
   # @param [Hash] opts the optional parameters
   # @return [nil]
-  describe '2_works_work_id_assets_options test' do
+  describe 'works_work_id_assets_options test' do
     it "should work" do
       # assertion here
       # should be_a()

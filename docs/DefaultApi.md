@@ -1,25 +1,25 @@
 # MetatronClient::DefaultApi
 
-All URIs are relative to *https://bibliography.talis.com*
+All URIs are relative to *https://bibliography.talis.com/2*
 
 Method | HTTP request | Description
 ------------- | ------------- | -------------
-[**2_assets_asset_type_asset_id_delete**](DefaultApi.md#2_assets_asset_type_asset_id_delete) | **DELETE** /2/assets/{assetType}/{assetId} | 
-[**2_assets_asset_type_asset_id_get**](DefaultApi.md#2_assets_asset_type_asset_id_get) | **GET** /2/assets/{assetType}/{assetId} | 
-[**2_assets_asset_type_asset_id_options**](DefaultApi.md#2_assets_asset_type_asset_id_options) | **OPTIONS** /2/assets/{assetType}/{assetId} | 
-[**2_manifestations_get**](DefaultApi.md#2_manifestations_get) | **GET** /2/manifestations | 
-[**2_manifestations_manifestation_id_assets_get**](DefaultApi.md#2_manifestations_manifestation_id_assets_get) | **GET** /2/manifestations/{manifestationId}/assets | 
-[**2_manifestations_manifestation_id_assets_options**](DefaultApi.md#2_manifestations_manifestation_id_assets_options) | **OPTIONS** /2/manifestations/{manifestationId}/assets | 
-[**2_manifestations_manifestation_id_assets_post**](DefaultApi.md#2_manifestations_manifestation_id_assets_post) | **POST** /2/manifestations/{manifestationId}/assets | 
-[**2_manifestations_options**](DefaultApi.md#2_manifestations_options) | **OPTIONS** /2/manifestations | 
-[**2_works_get**](DefaultApi.md#2_works_get) | **GET** /2/works | 
-[**2_works_options**](DefaultApi.md#2_works_options) | **OPTIONS** /2/works | 
-[**2_works_work_id_assets_get**](DefaultApi.md#2_works_work_id_assets_get) | **GET** /2/works/{workId}/assets | 
-[**2_works_work_id_assets_options**](DefaultApi.md#2_works_work_id_assets_options) | **OPTIONS** /2/works/{workId}/assets | 
+[**assets_asset_type_asset_id_delete**](DefaultApi.md#assets_asset_type_asset_id_delete) | **DELETE** /assets/{assetType}/{assetId} | 
+[**assets_asset_type_asset_id_get**](DefaultApi.md#assets_asset_type_asset_id_get) | **GET** /assets/{assetType}/{assetId} | 
+[**assets_asset_type_asset_id_options**](DefaultApi.md#assets_asset_type_asset_id_options) | **OPTIONS** /assets/{assetType}/{assetId} | 
+[**manifestations_get**](DefaultApi.md#manifestations_get) | **GET** /manifestations | 
+[**manifestations_manifestation_id_assets_get**](DefaultApi.md#manifestations_manifestation_id_assets_get) | **GET** /manifestations/{manifestationId}/assets | 
+[**manifestations_manifestation_id_assets_options**](DefaultApi.md#manifestations_manifestation_id_assets_options) | **OPTIONS** /manifestations/{manifestationId}/assets | 
+[**manifestations_manifestation_id_assets_post**](DefaultApi.md#manifestations_manifestation_id_assets_post) | **POST** /manifestations/{manifestationId}/assets | 
+[**manifestations_options**](DefaultApi.md#manifestations_options) | **OPTIONS** /manifestations | 
+[**works_get**](DefaultApi.md#works_get) | **GET** /works | 
+[**works_options**](DefaultApi.md#works_options) | **OPTIONS** /works | 
+[**works_work_id_assets_get**](DefaultApi.md#works_work_id_assets_get) | **GET** /works/{workId}/assets | 
+[**works_work_id_assets_options**](DefaultApi.md#works_work_id_assets_options) | **OPTIONS** /works/{workId}/assets | 
 
 
-# **2_assets_asset_type_asset_id_delete**
-> 2_assets_asset_type_asset_id_delete(asset_id, asset_type)
+# **assets_asset_type_asset_id_delete**
+> assets_asset_type_asset_id_delete(asset_id, asset_type)
 
 
 
@@ -43,9 +43,9 @@ asset_type = "asset_type_example" # String |
 
 
 begin
-  api_instance.2_assets_asset_type_asset_id_delete(asset_id, asset_type)
+  api_instance.assets_asset_type_asset_id_delete(asset_id, asset_type)
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_assets_asset_type_asset_id_delete: #{e}"
+  puts "Exception when calling DefaultApi->assets_asset_type_asset_id_delete: #{e}"
 end
 ```
 
@@ -71,8 +71,8 @@ nil (empty response body)
 
 
 
-# **2_assets_asset_type_asset_id_get**
-> 2_assets_asset_type_asset_id_get(asset_id, asset_type)
+# **assets_asset_type_asset_id_get**
+> assets_asset_type_asset_id_get(asset_id, asset_type)
 
 
 
@@ -96,9 +96,9 @@ asset_type = "asset_type_example" # String |
 
 
 begin
-  api_instance.2_assets_asset_type_asset_id_get(asset_id, asset_type)
+  api_instance.assets_asset_type_asset_id_get(asset_id, asset_type)
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_assets_asset_type_asset_id_get: #{e}"
+  puts "Exception when calling DefaultApi->assets_asset_type_asset_id_get: #{e}"
 end
 ```
 
@@ -124,8 +124,8 @@ nil (empty response body)
 
 
 
-# **2_assets_asset_type_asset_id_options**
-> 2_assets_asset_type_asset_id_options
+# **assets_asset_type_asset_id_options**
+> assets_asset_type_asset_id_options
 
 
 
@@ -137,9 +137,9 @@ require 'metatron_ruby_client'
 api_instance = MetatronClient::DefaultApi.new
 
 begin
-  api_instance.2_assets_asset_type_asset_id_options
+  api_instance.assets_asset_type_asset_id_options
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_assets_asset_type_asset_id_options: #{e}"
+  puts "Exception when calling DefaultApi->assets_asset_type_asset_id_options: #{e}"
 end
 ```
 
@@ -161,8 +161,8 @@ No authorization required
 
 
 
-# **2_manifestations_get**
-> 2_manifestations_get
+# **manifestations_get**
+> manifestations_get
 
 
 
@@ -181,9 +181,9 @@ end
 api_instance = MetatronClient::DefaultApi.new
 
 begin
-  api_instance.2_manifestations_get
+  api_instance.manifestations_get
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_manifestations_get: #{e}"
+  puts "Exception when calling DefaultApi->manifestations_get: #{e}"
 end
 ```
 
@@ -205,8 +205,8 @@ nil (empty response body)
 
 
 
-# **2_manifestations_manifestation_id_assets_get**
-> 2_manifestations_manifestation_id_assets_get(manifestation_id)
+# **manifestations_manifestation_id_assets_get**
+> manifestations_manifestation_id_assets_get(manifestation_id)
 
 
 
@@ -228,9 +228,9 @@ manifestation_id = "manifestation_id_example" # String |
 
 
 begin
-  api_instance.2_manifestations_manifestation_id_assets_get(manifestation_id)
+  api_instance.manifestations_manifestation_id_assets_get(manifestation_id)
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_manifestations_manifestation_id_assets_get: #{e}"
+  puts "Exception when calling DefaultApi->manifestations_manifestation_id_assets_get: #{e}"
 end
 ```
 
@@ -255,8 +255,8 @@ nil (empty response body)
 
 
 
-# **2_manifestations_manifestation_id_assets_options**
-> 2_manifestations_manifestation_id_assets_options
+# **manifestations_manifestation_id_assets_options**
+> manifestations_manifestation_id_assets_options
 
 
 
@@ -268,9 +268,9 @@ require 'metatron_ruby_client'
 api_instance = MetatronClient::DefaultApi.new
 
 begin
-  api_instance.2_manifestations_manifestation_id_assets_options
+  api_instance.manifestations_manifestation_id_assets_options
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_manifestations_manifestation_id_assets_options: #{e}"
+  puts "Exception when calling DefaultApi->manifestations_manifestation_id_assets_options: #{e}"
 end
 ```
 
@@ -292,8 +292,8 @@ No authorization required
 
 
 
-# **2_manifestations_manifestation_id_assets_post**
-> 2_manifestations_manifestation_id_assets_post(manifestation_id)
+# **manifestations_manifestation_id_assets_post**
+> manifestations_manifestation_id_assets_post(manifestation_id)
 
 
 
@@ -315,9 +315,9 @@ manifestation_id = "manifestation_id_example" # String |
 
 
 begin
-  api_instance.2_manifestations_manifestation_id_assets_post(manifestation_id)
+  api_instance.manifestations_manifestation_id_assets_post(manifestation_id)
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_manifestations_manifestation_id_assets_post: #{e}"
+  puts "Exception when calling DefaultApi->manifestations_manifestation_id_assets_post: #{e}"
 end
 ```
 
@@ -342,8 +342,8 @@ nil (empty response body)
 
 
 
-# **2_manifestations_options**
-> 2_manifestations_options
+# **manifestations_options**
+> manifestations_options
 
 
 
@@ -355,9 +355,9 @@ require 'metatron_ruby_client'
 api_instance = MetatronClient::DefaultApi.new
 
 begin
-  api_instance.2_manifestations_options
+  api_instance.manifestations_options
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_manifestations_options: #{e}"
+  puts "Exception when calling DefaultApi->manifestations_options: #{e}"
 end
 ```
 
@@ -379,8 +379,8 @@ No authorization required
 
 
 
-# **2_works_get**
-> 2_works_get
+# **works_get**
+> works_get
 
 
 
@@ -399,9 +399,9 @@ end
 api_instance = MetatronClient::DefaultApi.new
 
 begin
-  api_instance.2_works_get
+  api_instance.works_get
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_works_get: #{e}"
+  puts "Exception when calling DefaultApi->works_get: #{e}"
 end
 ```
 
@@ -423,8 +423,8 @@ nil (empty response body)
 
 
 
-# **2_works_options**
-> 2_works_options
+# **works_options**
+> works_options
 
 
 
@@ -436,9 +436,9 @@ require 'metatron_ruby_client'
 api_instance = MetatronClient::DefaultApi.new
 
 begin
-  api_instance.2_works_options
+  api_instance.works_options
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_works_options: #{e}"
+  puts "Exception when calling DefaultApi->works_options: #{e}"
 end
 ```
 
@@ -460,8 +460,8 @@ No authorization required
 
 
 
-# **2_works_work_id_assets_get**
-> 2_works_work_id_assets_get(work_id)
+# **works_work_id_assets_get**
+> works_work_id_assets_get(work_id)
 
 
 
@@ -483,9 +483,9 @@ work_id = "work_id_example" # String |
 
 
 begin
-  api_instance.2_works_work_id_assets_get(work_id)
+  api_instance.works_work_id_assets_get(work_id)
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_works_work_id_assets_get: #{e}"
+  puts "Exception when calling DefaultApi->works_work_id_assets_get: #{e}"
 end
 ```
 
@@ -510,8 +510,8 @@ nil (empty response body)
 
 
 
-# **2_works_work_id_assets_options**
-> 2_works_work_id_assets_options
+# **works_work_id_assets_options**
+> works_work_id_assets_options
 
 
 
@@ -523,9 +523,9 @@ require 'metatron_ruby_client'
 api_instance = MetatronClient::DefaultApi.new
 
 begin
-  api_instance.2_works_work_id_assets_options
+  api_instance.works_work_id_assets_options
 rescue MetatronClient::ApiError => e
-  puts "Exception when calling DefaultApi->2_works_work_id_assets_options: #{e}"
+  puts "Exception when calling DefaultApi->works_work_id_assets_options: #{e}"
 end
 ```
 
